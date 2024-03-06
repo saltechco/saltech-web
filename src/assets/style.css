@@ -1,3 +1,5 @@
+@import 'primeicons/primeicons.css';
+
 html {
     font-size: 14px;
 }
@@ -10,6 +12,7 @@ body {
     padding: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
 }
 
 .card {

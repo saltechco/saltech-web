@@ -1,6 +1,6 @@
 import 'primeflex/primeflex.css'
-import 'primevue/resources/themes/aura-light-green/theme.css'
-import 'primevue/resources/primevue.min.css' /* Deprecated */
+import 'primevue/resources/themes/aura-dark-amber/theme.css'
+import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 import './assets/style.css'
 import './assets/flags.css'
