@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "Peyda Light";
+    src: url("Peyda-Light.woff2");
+}
+
+@font-face {
+    font-family: "Peyda Regular";
+    src: url("Peyda-Regular.woff2");
+}
+
+@font-face {
+    font-family: "Peyda Medium";
+    src: url("Peyda-Medium.woff2");
+}
+
+@font-face {
+    font-family: "Peyda Bold";
+    src: url("Peyda-Bold.woff2");
+}
+
+@font-face {
+    font-family: "Peyda Black";
+    src: url("Peyda-Black.woff2");
+}
+
+@font-face {
+    font-family: "Roboto Thin";
+    src: url("Roboto-Thin.woff2");
+}
+
+@font-face {
+    font-family: "Roboto Light";
+    src: url("Roboto-Light.woff2");
+}
+
+@font-face {
+    font-family: "Roboto Regular";
+    src: url("Roboto-Regular.woff2");
+}
+
+@font-face {
+    font-family: "Roboto Medium";
+    src: url("Roboto-Medium.woff2");
+}
+
+@font-face {
+    font-family: "Roboto Bold";
+    src: url("Roboto-Bold.woff2");
+}
+
+@font-face {
+    font-family: "Roboto Black";
+    src: url("Roboto-Black.woff2");
+}

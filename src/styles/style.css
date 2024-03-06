@@ -1,20 +1,20 @@
 @import 'primeicons/primeicons.css';
+@import '../assets/fonts/fonts.css';
 
-html {
-    font-size: 14px;
-    direction: rtl;
-}
-
-body {
+html, body {
     font-family: var(--font-family);
     font-weight: normal;
-    background-image: url("https://img.freepik.com/premium-photo/abstract-3d-illustration_692702-9758.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699056000&semt=ais");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: var(--surface-ground);
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
+}
+
+* {
+    font-size: 1em;
+    font-family: "Roboto Regular", "Peyda Regular", "primeicons", sans-serif !important;
+    direction: rtl;
 }
 
 .card {
@@ -30,4 +30,5 @@ p {
 
 a {
     text-decoration: none;
+    color: var(--text-color);
 }
