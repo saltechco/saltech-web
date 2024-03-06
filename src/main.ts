@@ -1,9 +1,9 @@
 import 'primeflex/primeflex.css'
-import 'primevue/resources/themes/aura-dark-amber/theme.css'
+import 'primevue/resources/themes/aura-light-amber/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
-import './assets/style.css'
-import './assets/flags.css'
+import '@/styles/style.css'
+import '@/styles/flags.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'

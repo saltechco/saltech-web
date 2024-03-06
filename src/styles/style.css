@@ -2,14 +2,16 @@
 
 html {
     font-size: 14px;
+    direction: rtl;
 }
 
 body {
     font-family: var(--font-family);
     font-weight: normal;
-    background: var(--surface-ground);
+    background-image: url("https://img.freepik.com/premium-photo/abstract-3d-illustration_692702-9758.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699056000&semt=ais");
+    background-repeat: no-repeat;
+    background-size: cover;
     color: var(--text-color);
-    padding: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
