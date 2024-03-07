@@ -1,5 +1,5 @@
 import 'primeflex/primeflex.css'
-import 'primevue/resources/themes/aura-light-amber/theme.css'
+import 'primevue/resources/themes/aura-light-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 import '@/styles/style.css'
@@ -116,7 +116,6 @@ import TreeTable from 'primevue/treetable'
 import TriStateCheckbox from 'primevue/tristatecheckbox'
 import VirtualScroller from 'primevue/virtualscroller'
 
-
 const app = createApp(App)
 
 app.use(PrimeVue, { ripple: true })
@@ -230,6 +229,5 @@ app.component('TreeSelect', TreeSelect)
 app.component('TreeTable', TreeTable)
 app.component('TriStateCheckbox', TriStateCheckbox)
 app.component('VirtualScroller', VirtualScroller)
-
 
 app.mount('#app')

@@ -1,9 +1,21 @@
-<script setup lang="ts">
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <img src="https://plus.unsplash.com/premium_photo-1683140655656-20448abc55da?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="unsplash">
+  <div class="spacer" />
+  <div class="container">هیچ کاری نشد نداره! 🦾</div>
 </template>
 
 <style scoped>
+.container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  min-width: 100vw;
+  font-family: 'Peyda Black', sans-serif !important;
+  font-size: 3rem;
+  overflow: hidden;
+}
 </style>

@@ -91,10 +91,10 @@ export const PhotoService = {
         alt: 'Description for Image 15',
         title: 'Title 15'
       }
-    ];
+    ]
   },
 
   getImages() {
-    return Promise.resolve(this.getData());
+    return Promise.resolve(this.getData())
   }
-};
+}
