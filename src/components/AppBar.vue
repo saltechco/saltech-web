@@ -1,5 +1,11 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
+const scrolled = ref(false)
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+})
 
 const items = ref([
   {
@@ -29,7 +35,7 @@ const items = ref([
             },
             {
               label: 'تسبیح',
-              subtext: 'شروع به ذکر و نام یاد خدا',
+              subtext: 'لحظاتی راز و نیاز با خدا',
               route: '/apps/Tasbih',
               icon: 'pi pi-android',
               image: 'https://s.cafebazaar.ir/images/upload/icons/com.saltechgroup.tasbih.png'
@@ -45,7 +51,7 @@ const items = ref([
             {
               label: 'مهد خاطره',
               subtext: 'نمونه ای از یک سایت کامل',
-              route: '/websites/mahekhatere',
+              route: '/websites/mahdekhatere',
               icon: 'pi pi-file'
             }
           ]
@@ -76,21 +82,31 @@ const items = ref([
     route: '/contactus'
   }
 ])
+
+function handleScroll() {
+  scrolled.value = window.scrollY >= 100
+}
 </script>
 
 <template>
-  <div id="menu-bg">
+  <div id="menu-bg" :class="scrolled ? 'shadow-3': ''">
     <MegaMenu id="menu" :model="items" class="p-3 w-full">
       <template #start>
-        <div class="clickable" onclick='window.location.href = "/"'>
-          <object
-            id="title-icon"
+        <div class=" clickable" onclick='window.location.href = "/"'>
+          <img
+            id="title-icon-large"
             class="h-3rem"
-            data="/src/assets/images/row-logo.svg"
-            onclick="alert('fessfe')"
-          ></object>
+            src="https://saltech.ir/pictures/row-logo.svg"
+            alt="logo"
+          />
+          <img
+            id="title-icon-small"
+            class="h-3rem"
+            src="https://saltech.ir/pictures/logo.svg"
+            alt="logo"
+          />
         </div>
-        <div style="padding-left: 200px" />
+        <div id="title-spacer" />
       </template>
       <template #item="{ item }">
         <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
@@ -141,22 +157,54 @@ const items = ref([
 </template>
 
 <style scoped>
-#title-icon {
-  width: 10rem;
+@media (min-width: 960px) {
+  #menu {
+    margin: 0.5rem 0.8rem;
+  }
+
+  #title-icon-large {
+    width: 10rem;
+    display: block;
+  }
+
+  #title-icon-small {
+    display: none;
+  }
+
+  #title-spacer {
+    padding-left: 200px;
+  }
+}
+
+@media (max-width: 960px) {
+  #menu {
+    margin: 0.5rem -1rem;
+  }
+
+  #title-icon-large {
+    display: none;
+  }
+
+  #title-icon-small {
+    width: 5rem;
+    scale: 0.925;
+    display: block;
+  }
+
+  #title-spacer {
+    padding-left: 100px;
+  }
 }
 
 #menu-bg {
   width: 100vw;
-  backdrop-filter: blur(30px);
+  background: var(--surface-0);
   /*background: var(--surface-ground);*/
 }
 
 #menu {
   border: none;
   background: none;
-  margin-top: 1rem;
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
 }
 
 .image-cropper {
@@ -166,6 +214,10 @@ const items = ref([
   border-radius: 50%;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 img {
   display: inline;
   margin: 0 auto;
@@ -173,12 +225,9 @@ img {
   width: auto;
 }
 
-.clickable {
-  cursor: pointer;
-}
-
 object {
   width: 100%;
   pointer-events: none;
 }
+
 </style>

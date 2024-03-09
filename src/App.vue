@@ -5,7 +5,5 @@ import AppBar from '@/components/AppBar.vue'
 
 <template>
   <AppBar style="position: fixed; top: 0; right: 0; z-index: 1000" />
-  <RouterView style="position: absolute; top: 0; right: 0" />
+  <RouterView />
 </template>
-
-<style scoped></style>

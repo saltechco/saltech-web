@@ -1,0 +1,161 @@
+<script lang="ts" setup>
+import { ref } from 'vue'
+const slogans = ['در پی خلق شگفتی', 'پیبثنسبث']
+
+const typerData = slogans.slice(1)
+const writtenText = ref(slogans[0])
+
+function typeWriter(text, i, fnCallback) {
+  if (i < (text.length)) {
+    writtenText.value = text.substring(0, i + 1) + '<span aria-hidden="true"></span>'
+
+    setTimeout(function() {
+      typeWriter(text, i + 1, fnCallback)
+    }, 100)
+  } else if (typeof fnCallback == 'function') {
+    setTimeout(fnCallback, 700)
+  }
+}
+
+// start a typewriter animation for a text in the dataText array
+function StartTextAnimation(i) {
+  setTimeout(function() {
+    if (i < typerData[i].length) {
+      if (typeof typerData[i] == 'undefined') {
+        StartTextAnimation(0)
+      } else {
+        typeWriter(typerData[i], 0, function() {
+          StartTextAnimation(i + 1)
+        })
+      }
+    }
+  }, 5000)
+}
+
+// start the text animation
+StartTextAnimation(0)
+</script>
+
+<template>
+  <div id="title-layout">
+    <div id="title-text-layout">
+      <div id="title-text">
+        <span class="material-symbols-rounded mx-2">workspaces</span>
+        <div>
+          <h1 id="text-title" v-html="writtenText"></h1>
+        </div>
+        <h5 id="text-title-subtitle">
+          آیا شما هم به دنبال نرم افزار های کاربردی و جذاب هستید؟
+        </h5>
+        <p id="text-subtitle">
+          اینجا، کلکسیونی از اپلیکیشن های بروز و کم نظیر در انتظار شما هستند.<br>پس به جمع ما بپیوندید.
+        </p>
+        <div class="my-3" />
+        <Button class="my-2" icon="pi pi-arrow-left" icon-pos="right" label="بیشتر بدانید&nbsp;&nbsp;&nbsp;&nbsp;"
+                outlined severity="secondary" />
+      </div>
+    </div>
+    <div id="title-image-layout">
+      <img id="title-image" alt="صالتک" src="/site_mainviewimage.webp">
+    </div>
+  </div>
+</template>
+
+<style scoped>
+
+* {
+  direction: rtl;
+}
+
+@media (min-width: 500px) {
+  #title-layout {
+    display: flex;
+  }
+
+  #title-text-layout,
+  #title-image-layout {
+    width: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  #title-layout {
+    display: block;
+  }
+
+  #title-text-layout,
+  #title-image-layout {
+    width: 100%;
+  }
+}
+
+#title-layout {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+#title-text-layout {
+  height: 91vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title-image-layout {
+  height: 91vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title-image {
+  width: 70%;
+  margin-top: 8%;
+  margin-left: 25%;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 0,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/***** Texts *****/
+
+#text-title {
+  font-family: "Peyda Black", sans-serif !important;
+  font-size: 3vw;
+  text-transform: uppercase;
+  line-height: 0.8rem;
+  padding-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+
+#text-title-subtitle {
+  font-family: "Peyda Bold", sans-serif !important;
+  font-size: 1.2vw;
+  color: var(--text-color-secondary);
+  line-height: 0.8rem;
+}
+
+#text-subtitle {
+  font-family: "Peyda Medium", sans-serif !important;
+  font-size: 1.15vw;
+}
+
+span {
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+</style>

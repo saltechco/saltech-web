@@ -1,11 +1,16 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import FirstMainView from '@/components/FirstMainView.vue'
+</script>
 
 <template>
   <div class="spacer" />
-  <div class="container">هیچ کاری نشد نداره! 🦾</div>
+  <div class="container">
+    <FirstMainView />
+  </div>
 </template>
 
 <style scoped>
+/*
 .container {
   position: fixed;
   display: flex;
@@ -17,5 +22,10 @@
   font-family: 'Peyda Black', sans-serif !important;
   font-size: 3rem;
   overflow: hidden;
+}
+ */
+.container {
+  overflow-x: hidden;
+  margin: 0;
 }
 </style>
