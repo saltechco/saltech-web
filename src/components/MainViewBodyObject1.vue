@@ -5,7 +5,7 @@
   <div id="title-layout">
     <div id="title-text-layout">
       <div id="title-text">
-        <span class="material-symbols-rounded mx-2">target</span>
+        <span id="text-title-icon" class="material-symbols-rounded mx-2">target</span>
         <div>
           <h1 id="text-title">به دنبال چه هستیم؟!</h1>
         </div>
@@ -18,12 +18,12 @@
     </div>
     <div id="title-image-layout">
       <img id="title-image" alt="صالتک" src="/site_purpose.webp">
-<!--      <lottie-player  id="title-image" src="https://lottie.host/6f4ee854-3625-4849-8985-e423a0752949/hZWZsrb0zk.json" background="transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal" loop autoplay></lottie-player>-->
     </div>
   </div>
 </template>
 
 <style scoped>
+@import "@/styles/responsive-main-view-object.css";
 
 * {
   direction: rtl;
@@ -80,6 +80,10 @@
   width: 60%;
   margin-top: 3%;
   margin-left: 25%;
+}
+
+#text-title-icon {
+  padding-right: 0.25vw;
 }
 
 .material-symbols-rounded {

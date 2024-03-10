@@ -8,7 +8,7 @@
     </div>
     <div id="title-text-layout">
       <div id="title-text">
-        <span class="material-symbols-rounded mx-2">code</span>
+        <span id="text-title-icon" class="material-symbols-rounded mx-2">code</span>
         <div>
           <h1 id="text-title">کدام پلتفرم ها ... ؟!</h1>
         </div>
@@ -23,6 +23,7 @@
 </template>
 
 <style scoped>
+@import "@/styles/responsive-main-view-object.css";
 
 * {
   direction: rtl;
@@ -80,6 +81,10 @@
   width: 60%;
   margin-top: 3%;
   margin-right: 15%;
+}
+
+#text-title-icon {
+  padding-right: 0.25vw;
 }
 
 .material-symbols-rounded {

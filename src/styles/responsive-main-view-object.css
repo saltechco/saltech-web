@@ -1,0 +1,123 @@
+
+/** TODO: Setup Responsive **/
+@media (min-width: 1080px) {
+    #title-text-layout,
+    #title-image-layout {
+        height: 91vh !important;
+    }
+
+    #text-title {
+        font-size: 3vw !important;
+        padding-bottom: 1.75rem !important;
+    }
+
+    #text-title-subtitle {
+        font-size: 1.3vw !important;
+    }
+
+    #text-subtitle {
+        font-size: 1.4vw !important;
+    }
+
+    #text-title-icon {
+        font-size: 2.5vw !important;
+    }
+
+    #text-learn-more {
+        font-size: 1vw !important;
+    }
+}
+
+@media (max-width: 1080px) and (min-width: 640px) {
+    #title-text-layout,
+    #title-image-layout {
+        height: 65vh !important;
+    }
+
+    #text-title {
+        font-size: 3.5vw !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    #text-title-subtitle {
+        font-size: 1.4vw !important;
+    }
+
+    #text-subtitle {
+        font-size: 1.5vw !important;
+    }
+
+    #text-title-icon {
+        font-size: 3vw !important;
+    }
+
+    #text-learn-more {
+        font-size: 1.5vw !important;
+    }
+}
+
+@media (max-width: 640px) and (min-width: 480px) {
+    #title-text-layout,
+    #title-image-layout {
+        height: 58vh !important;
+    }
+
+    #text-title {
+        font-size: 4.5vw !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    #text-title-subtitle {
+        font-size: 2.75vw !important;
+    }
+
+    #text-subtitle {
+        font-size: 3vw !important;
+    }
+
+    #title-image {
+        scale: 1.3;
+        margin-left: 13% !important;
+    }
+
+    #text-title-icon {
+        font-size: 3.5vw !important;
+    }
+
+    #text-learn-more {
+        font-size: 2.75vw !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #title-text-layout,
+    #title-image-layout {
+        height: 53vh !important;
+    }
+
+    #text-title {
+        font-size: 5vw !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    #text-title-subtitle {
+        font-size: 2.75vw !important;
+    }
+
+    #text-subtitle {
+        font-size: 3vw !important;
+    }
+
+    #title-image {
+        scale: 1.3;
+        margin-left: 13% !important;
+    }
+
+    #text-title-icon {
+        font-size: 4.5vw !important;
+    }
+
+    #text-learn-more {
+        font-size: 3vw !important;
+    }
+}

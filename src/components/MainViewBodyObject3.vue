@@ -5,7 +5,7 @@
   <div id="title-layout">
     <div id="title-text-layout">
       <div id="title-text">
-        <span class="material-symbols-rounded mx-2">trending_up</span>
+        <span id="text-title-icon" class="material-symbols-rounded mx-2">trending_up</span>
         <div>
           <h1 id="text-title">چشم انداز ما چیست؟!</h1>
         </div>
@@ -24,6 +24,7 @@
 </template>
 
 <style scoped>
+@import "@/styles/responsive-main-view-object.css";
 
 * {
   direction: rtl;
@@ -80,6 +81,10 @@
   width: 90%;
   margin-top: -5%;
   margin-left: 26%;
+}
+
+#text-title-icon {
+  padding-right: 0.25vw;
 }
 
 .material-symbols-rounded {

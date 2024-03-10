@@ -48,7 +48,7 @@ setTimeout( function () {
   <div id="header-title-layout">
     <div id="title-text-layout">
       <div id="title-text">
-        <span class="material-symbols-rounded mx-2">workspaces</span>
+        <span id="text-title-icon" class="material-symbols-rounded mx-2">workspaces</span>
         <div>
           <h1 id="text-title" v-html="writtenText"></h1>
         </div>
@@ -59,7 +59,7 @@ setTimeout( function () {
           اینجا، کلکسیونی از اپلیکیشن های بروز و کم نظیر در انتظار شما هستند.<br>پس به جمع ما بپیوندید.
         </p>
         <div class="my-3" />
-        <a href="#learnMore"><Button class="my-2" icon="pi pi-arrow-left" icon-pos="right" label="بیشتر بدانید&nbsp;&nbsp;&nbsp;&nbsp;"
+        <a href="#learnMore"><Button id="text-learn-more" class="my-2" icon="pi pi-arrow-left" icon-pos="right" label="بیشتر بدانید&nbsp;&nbsp;&nbsp;&nbsp;"
                                      outlined severity="secondary" @click="isShowBodyAndFooterWanted = true" /></a>
       </div>
     </div>
@@ -77,12 +77,7 @@ setTimeout( function () {
 </template>
 
 <style scoped>
-
-.divider {
-  scale: 2.85;
-  color: var(--text-color-secondary);
-  opacity: 28%;
-}
+@import "@/styles/responsive-main-view-object.css";
 
 * {
   direction: rtl;
@@ -99,7 +94,6 @@ setTimeout( function () {
 }
 
 #title-text-layout {
-  height: 91vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,7 +102,6 @@ setTimeout( function () {
 }
 
 #title-image-layout {
-  height: 91vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,6 +115,10 @@ setTimeout( function () {
   margin-left: 25%;
 }
 
+#text-title-icon {
+  padding-right: 0.25vw;
+}
+
 .material-symbols-rounded {
   font-variation-settings: 'FILL' 0,
   'wght' 700,
@@ -133,24 +130,22 @@ setTimeout( function () {
 
 #text-title {
   font-family: "Peyda Black", sans-serif !important;
-  font-size: 3vw;
   text-transform: uppercase;
   line-height: 0.8rem;
-  padding-bottom: 2rem;
   padding-top: 0.5rem;
 }
 
 #text-title-subtitle {
   font-family: "Peyda Bold", sans-serif !important;
-  font-size: 1.2vw;
   color: var(--text-color-secondary);
   line-height: 0.8rem;
 }
 
 #text-subtitle {
   font-family: "Peyda Medium", sans-serif !important;
-  font-size: 1.15vw;
 }
+
+/******************/
 
 span {
   animation: caret 1s steps(1) infinite;
@@ -161,4 +156,11 @@ span {
     border-color: transparent;
   }
 }
+
+.divider {
+  scale: 2.85;
+  color: var(--text-color-secondary);
+  opacity: 20%;
+}
+
 </style>
