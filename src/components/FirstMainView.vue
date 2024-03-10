@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-const slogans = ['در پی خلق شگفتی', 'پیبثنسبث']
+const slogans = ['سازنده ایده های ناب', 'نوآور در تکنولوژی', 'در پی خلق شگفتی']
 
-const typerData = slogans.slice(1)
-const writtenText = ref(slogans[0])
+const typerData = slogans
+const writtenText = ref(slogans[slogans.length - 1])
 
 function typeWriter(text, i, fnCallback) {
   if (i < (text.length)) {
@@ -19,21 +19,21 @@ function typeWriter(text, i, fnCallback) {
 
 // start a typewriter animation for a text in the dataText array
 function StartTextAnimation(i) {
-  setTimeout(function() {
-    if (i < typerData[i].length) {
-      if (typeof typerData[i] == 'undefined') {
-        StartTextAnimation(0)
-      } else {
-        typeWriter(typerData[i], 0, function() {
-          StartTextAnimation(i + 1)
-        })
-      }
+    if (typeof typerData[i] == 'undefined') {
+      i = 0
     }
-  }, 5000)
+    if (i < typerData[i].length) {
+      typeWriter(typerData[i], 0, function() {
+        setTimeout(function() {
+          StartTextAnimation(i + 1)
+        }, 5000)
+      })
+    }
 }
 
-// start the text animation
-StartTextAnimation(0)
+setTimeout( function () {
+  StartTextAnimation(0)
+}, 5000)
 </script>
 
 <template>
