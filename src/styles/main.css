@@ -64,12 +64,12 @@ a {
 
 @media (min-width: 530px) {
   .spacer {
-    margin-top: 5.25rem;
+    margin-top: 4rem;
   }
 }
 
 @media (max-width: 530px) {
   .spacer {
-    margin-top: 5.25rem;
+    margin-top: 5rem;
   }
 }

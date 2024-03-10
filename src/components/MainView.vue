@@ -1,6 +1,12 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+import MainViewBody from '@/components/MainViewBody.vue'
+
 const slogans = ['سازنده ایده های ناب', 'نوآور در تکنولوژی', 'در پی خلق شگفتی']
+
+const isShowBodyAndFooterWanted = ref(false)
+
+
 
 const typerData = slogans
 const writtenText = ref(slogans[slogans.length - 1])
@@ -51,13 +57,16 @@ setTimeout( function () {
           اینجا، کلکسیونی از اپلیکیشن های بروز و کم نظیر در انتظار شما هستند.<br>پس به جمع ما بپیوندید.
         </p>
         <div class="my-3" />
-        <Button class="my-2" icon="pi pi-arrow-left" icon-pos="right" label="بیشتر بدانید&nbsp;&nbsp;&nbsp;&nbsp;"
-                outlined severity="secondary" />
+        <a href="#learnMore"><Button class="my-2" icon="pi pi-arrow-left" icon-pos="right" label="بیشتر بدانید&nbsp;&nbsp;&nbsp;&nbsp;"
+                                     outlined severity="secondary" @click="isShowBodyAndFooterWanted = true" /></a>
       </div>
     </div>
     <div id="title-image-layout">
       <img id="title-image" alt="صالتک" src="/site_mainviewimage.webp">
     </div>
+  </div>
+  <div id="learnMore" v-if="isShowBodyAndFooterWanted">
+    <MainViewBody />
   </div>
 </template>
 
