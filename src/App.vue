@@ -4,6 +4,6 @@ import AppBar from '@/components/AppBar.vue'
 </script>
 
 <template>
-  <AppBar style="position: fixed; top: 0; right: 0; z-index: 1000" />
+  <AppBar />
   <RouterView />
 </template>

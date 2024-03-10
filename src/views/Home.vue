@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import MainView from '@/components/MainView.vue'
-import MainViewBody from '@/components/MainViewBody.vue'
+import MainViewBody from '@/components/MainViewBodyObject1.vue'
 </script>
 
 <template>

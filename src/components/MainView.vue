@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import MainViewBody from '@/components/MainViewBody.vue'
+import MainViewBodyObject1 from '@/components/MainViewBodyObject1.vue'
+import MainViewBodyObject2 from '@/components/MainViewBodyObject2.vue'
+import MainViewBodyObject3 from '@/components/MainViewBodyObject3.vue'
 
 const slogans = ['سازنده ایده های ناب', 'نوآور در تکنولوژی', 'در پی خلق شگفتی']
 
@@ -43,7 +45,7 @@ setTimeout( function () {
 </script>
 
 <template>
-  <div id="title-layout">
+  <div id="header-title-layout">
     <div id="title-text-layout">
       <div id="title-text">
         <span class="material-symbols-rounded mx-2">workspaces</span>
@@ -65,8 +67,10 @@ setTimeout( function () {
       <img id="title-image" alt="صالتک" src="/site_mainviewimage.webp">
     </div>
   </div>
-  <div id="learnMore" v-if="isShowBodyAndFooterWanted">
-    <MainViewBody />
+  <div id="learnMore">
+    <MainViewBodyObject1 />
+    <MainViewBodyObject2 />
+    <MainViewBodyObject3 />
   </div>
 </template>
 
@@ -76,34 +80,14 @@ setTimeout( function () {
   direction: rtl;
 }
 
-@media (min-width: 500px) {
-  #title-layout {
-    display: flex;
-  }
-
-  #title-text-layout,
-  #title-image-layout {
-    width: 50%;
-  }
-}
-
-@media (max-width: 500px) {
-  #title-layout {
-    display: block;
-  }
-
-  #title-text-layout,
-  #title-image-layout {
-    width: 100%;
-  }
-}
-
-#title-layout {
+#header-title-layout {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
+  background: var(--surface-100);
+  display: flex;
 }
 
 #title-text-layout {
@@ -112,6 +96,7 @@ setTimeout( function () {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 
 #title-image-layout {
@@ -120,11 +105,12 @@ setTimeout( function () {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 
 #title-image {
   width: 70%;
-  margin-top: 8%;
+  margin-top: 5%;
   margin-left: 25%;
 }
 

@@ -199,7 +199,10 @@ function handleScroll() {
 #menu-bg {
   width: 100vw;
   background: var(--surface-0);
-  /*background: var(--surface-ground);*/
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 #menu {
