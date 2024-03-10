@@ -69,12 +69,20 @@ setTimeout( function () {
   </div>
   <div id="learnMore">
     <MainViewBodyObject1 />
+    <div class="material-symbols-rounded divider w-full text-center align-center">more_horiz</div>
     <MainViewBodyObject2 />
+    <div class="material-symbols-rounded divider w-full text-center align-center">more_horiz</div>
     <MainViewBodyObject3 />
   </div>
 </template>
 
 <style scoped>
+
+.divider {
+  scale: 2.85;
+  color: var(--text-color-secondary);
+  opacity: 28%;
+}
 
 * {
   direction: rtl;
