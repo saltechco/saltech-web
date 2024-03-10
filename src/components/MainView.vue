@@ -3,12 +3,11 @@ import { ref } from 'vue'
 import MainViewBodyObject1 from '@/components/MainViewBodyObject1.vue'
 import MainViewBodyObject2 from '@/components/MainViewBodyObject2.vue'
 import MainViewBodyObject3 from '@/components/MainViewBodyObject3.vue'
+import MainViewFooter from '@/components/MainViewFooter.vue'
 
 const slogans = ['سازنده ایده های ناب', 'نوآور در تکنولوژی', 'در پی خلق شگفتی']
 
 const isShowBodyAndFooterWanted = ref(false)
-
-
 
 const typerData = slogans
 const writtenText = ref(slogans[slogans.length - 1])
@@ -68,11 +67,21 @@ setTimeout( function () {
     </div>
   </div>
   <div id="learnMore">
-    <MainViewBodyObject1 />
+    <div>
+      <MainViewBodyObject1 />
+    </div>
     <div class="material-symbols-rounded divider w-full text-center align-center">more_horiz</div>
-    <MainViewBodyObject2 />
+    <div>
+      <MainViewBodyObject2 />
+    </div>
     <div class="material-symbols-rounded divider w-full text-center align-center">more_horiz</div>
-    <MainViewBodyObject3 />
+    <div>
+      <MainViewBodyObject3 />
+    </div>
+<!--    <Divider/>-->
+    <div>
+      <MainViewFooter />
+    </div>
   </div>
 </template>
 

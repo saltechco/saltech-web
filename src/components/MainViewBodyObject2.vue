@@ -9,14 +9,11 @@
     <div id="title-text-layout">
       <div id="title-text">
         <span id="text-title-icon" class="material-symbols-rounded mx-2">code</span>
-        <div>
-          <h1 id="text-title">کدام پلتفرم ها ... ؟!</h1>
-        </div>
+        <h1 id="text-title">کدام پلتفرم ها ... ؟!</h1>
         <h5 id="text-title-subtitle">بر روی چه پلتفرم هایی کار انجام می دهیم؟</h5>
         <p id="text-subtitle">
           ما در پلتفرم هایی چون اندروید، ویندوز و وبسایت فعالیت و اپلیکیشن طراحی می کنیم.
         </p>
-        <div class="my-3" />
       </div>
     </div>
   </div>
@@ -29,28 +26,6 @@
   direction: rtl;
 }
 
-@media (min-width: 500px) {
-  #title-layout {
-    display: flex;
-  }
-
-  #title-text-layout,
-  #title-image-layout {
-    width: 50%;
-  }
-}
-
-@media (max-width: 500px) {
-  #title-layout {
-    display: block;
-  }
-
-  #title-text-layout,
-  #title-image-layout {
-    width: 100%;
-  }
-}
-
 #title-layout {
   background: var(--surface-0);
   height: 100%;
@@ -58,6 +33,7 @@
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
+  display: flex;
 }
 
 #title-text-layout {
@@ -67,6 +43,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 
 #title-image-layout {
@@ -75,6 +52,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 
 #title-image {
@@ -115,15 +93,5 @@
 #text-subtitle {
   font-family: "Peyda Medium", sans-serif !important;
   font-size: 1.15vw;
-}
-
-span {
-  animation: caret 1s steps(1) infinite;
-}
-
-@keyframes caret {
-  50% {
-    border-color: transparent;
-  }
 }
 </style>

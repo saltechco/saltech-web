@@ -6,19 +6,15 @@
     <div id="title-text-layout">
       <div id="title-text">
         <span id="text-title-icon" class="material-symbols-rounded mx-2">trending_up</span>
-        <div>
-          <h1 id="text-title">چشم انداز ما چیست؟!</h1>
-        </div>
+        <h1 id="text-title">چشم انداز ما چیست؟!</h1>
         <h5 id="text-title-subtitle">در آینده قراره چه کارهایی انجام بدهیم؟</h5>
         <p id="text-subtitle">
           تلفیق نرم افزار هایمان با هوش مصنوعی، خلق نرم افزار هایی <br>متناسب با تکنولوژی روز دنیا و افــزایــش بهره وری و کارآمدی
         </p>
-        <div class="my-3" />
       </div>
     </div>
     <div id="title-image-layout">
       <img id="title-image" alt="صالتک" src="/site_growup.webp">
-<!--      <lottie-player  id="title-image" src="https://lottie.host/6f4ee854-3625-4849-8985-e423a0752949/hZWZsrb0zk.json" background="transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal" loop autoplay></lottie-player>-->
     </div>
   </div>
 </template>
@@ -30,28 +26,6 @@
   direction: rtl;
 }
 
-@media (min-width: 500px) {
-  #title-layout {
-    display: flex;
-  }
-
-  #title-text-layout,
-  #title-image-layout {
-    width: 50%;
-  }
-}
-
-@media (max-width: 500px) {
-  #title-layout {
-    display: block;
-  }
-
-  #title-text-layout,
-  #title-image-layout {
-    width: 100%;
-  }
-}
-
 #title-layout {
   background: var(--surface-0);
   height: 100%;
@@ -59,6 +33,7 @@
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
+  display: flex;
 }
 
 #title-text-layout {
@@ -67,6 +42,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 
 #title-image-layout {
@@ -75,6 +51,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 
 #title-image {
@@ -115,15 +92,5 @@
 #text-subtitle {
   font-family: "Peyda Medium", sans-serif !important;
   font-size: 1.15vw;
-}
-
-span {
-  animation: caret 1s steps(1) infinite;
-}
-
-@keyframes caret {
-  50% {
-    border-color: transparent;
-  }
 }
 </style>
