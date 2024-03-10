@@ -1,11 +1,13 @@
 <script lang="ts" setup>
-import FirstMainView from '@/components/FirstMainView.vue'
+import MainViewHeader from '@/components/MainViewHeader.vue'
+import MainViewBody from '@/components/MainViewBody.vue'
 </script>
 
 <template>
   <div class="spacer" />
   <div class="container">
-    <FirstMainView />
+    <MainViewHeader />
+    <MainViewBody />
   </div>
 </template>
 
