@@ -87,7 +87,6 @@ setTimeout(function () {
     <div>
       <MainViewBodyObject3 />
     </div>
-    <!--    <Divider/>-->
     <div>
       <MainViewFooter />
     </div>
@@ -174,11 +173,5 @@ span {
   50% {
     border-color: transparent;
   }
-}
-
-.divider {
-  scale: 2.85;
-  color: var(--text-color-secondary);
-  opacity: 20%;
 }
 </style>
