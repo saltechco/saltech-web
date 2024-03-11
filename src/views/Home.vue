@@ -1,12 +1,22 @@
 <script lang="ts" setup>
 import MainView from '@/components/MainView.vue'
-import MainViewBody from '@/components/MainViewBodyObject1.vue'
 </script>
 
 <template>
   <div class="spacer" />
   <div class="container">
     <MainView />
+    <ScrollTop
+      id="scroll-top"
+      :threshold="500"
+      :pt="{
+        root: 'w-3rem h-3rem border-round-sm bg-primary',
+        icon: {
+          class: 'text-base'
+        }
+      }"
+      icon="pi pi-arrow-up"
+    />
   </div>
 </template>
 
@@ -28,5 +38,9 @@ import MainViewBody from '@/components/MainViewBodyObject1.vue'
 .container {
   overflow-x: hidden;
   margin: 0;
+}
+
+#scroll-top {
+  margin: 1.5rem;
 }
 </style>

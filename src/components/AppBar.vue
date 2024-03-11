@@ -4,7 +4,7 @@ import { onMounted, ref } from 'vue'
 const scrolled = ref(false)
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener('scroll', handleScroll)
 })
 
 const items = ref([
@@ -63,7 +63,7 @@ const items = ref([
             {
               label: 'مرور کلمات',
               subtext: 'نظم دهی و مرور لغات و معانی',
-              route: '/apps/WordsReminder',
+              route: '/apps/WordReminder',
               icon: 'pi pi-microsoft'
             }
           ]
@@ -89,10 +89,10 @@ function handleScroll() {
 </script>
 
 <template>
-  <div id="menu-bg" :class="scrolled ? 'shadow-3': ''">
+  <div id="menu-bg" :class="scrolled ? 'shadow-3' : ''">
     <MegaMenu id="menu" :model="items" class="p-3 w-full">
       <template #start>
-        <div class=" clickable" onclick='window.location.href = "/"'>
+        <div class="clickable" onclick='window.location.href = "/"'>
           <img
             id="title-icon-large"
             class="h-3rem"
@@ -217,20 +217,10 @@ function handleScroll() {
   border-radius: 50%;
 }
 
-.clickable {
-  cursor: pointer;
-}
-
 img {
   display: inline;
   margin: 0 auto;
   height: 100%;
   width: auto;
 }
-
-object {
-  width: 100%;
-  pointer-events: none;
-}
-
 </style>

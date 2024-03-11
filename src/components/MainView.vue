@@ -12,11 +12,11 @@ const isShowBodyAndFooterWanted = ref(false)
 const typerData = slogans
 const writtenText = ref(slogans[slogans.length - 1])
 
-function typeWriter(text, i, fnCallback) {
-  if (i < (text.length)) {
+function typeWriter(text: string, i: number, fnCallback: () => void) {
+  if (i < text.length) {
     writtenText.value = text.substring(0, i + 1) + '<span aria-hidden="true"></span>'
 
-    setTimeout(function() {
+    setTimeout(function () {
       typeWriter(text, i + 1, fnCallback)
     }, 100)
   } else if (typeof fnCallback == 'function') {
@@ -25,20 +25,20 @@ function typeWriter(text, i, fnCallback) {
 }
 
 // start a typewriter animation for a text in the dataText array
-function StartTextAnimation(i) {
-    if (typeof typerData[i] == 'undefined') {
-      i = 0
-    }
-    if (i < typerData[i].length) {
-      typeWriter(typerData[i], 0, function() {
-        setTimeout(function() {
-          StartTextAnimation(i + 1)
-        }, 5000)
-      })
-    }
+function StartTextAnimation(i: number) {
+  if (typeof typerData[i] == 'undefined') {
+    i = 0
+  }
+  if (i < typerData[i].length) {
+    typeWriter(typerData[i], 0, function () {
+      setTimeout(function () {
+        StartTextAnimation(i + 1)
+      }, 5000)
+    })
+  }
 }
 
-setTimeout( function () {
+setTimeout(function () {
   StartTextAnimation(0)
 }, 5000)
 </script>
@@ -51,19 +51,28 @@ setTimeout( function () {
         <div>
           <h1 id="text-title" v-html="writtenText"></h1>
         </div>
-        <h5 id="text-title-subtitle">
-          آیا شما هم به دنبال نرم افزار های کاربردی و جذاب هستید؟
-        </h5>
+        <h5 id="text-title-subtitle">آیا شما هم به دنبال نرم افزار های کاربردی و جذاب هستید؟</h5>
         <p id="text-subtitle">
-          اینجا، کلکسیونی از اپلیکیشن های بروز و کم نظیر در انتظار شما هستند.<br>پس به جمع ما بپیوندید.
+          اینجا، کلکسیونی از اپلیکیشن های بروز و کم نظیر در انتظار شما هستند.<br />پس به جمع ما
+          بپیوندید.
         </p>
         <div class="my-3" />
-        <a href="#learnMore"><Button id="text-learn-more" class="my-2" icon="pi pi-arrow-left" icon-pos="right" label="بیشتر بدانید&nbsp;&nbsp;&nbsp;&nbsp;"
-                                     outlined severity="secondary" @click="isShowBodyAndFooterWanted = true" /></a>
+        <a href="#learnMore">
+          <Button
+            id="text-learn-more"
+            class="my-2"
+            icon="pi pi-arrow-left"
+            icon-pos="right"
+            label="بیشتر بدانید&nbsp;&nbsp;&nbsp;&nbsp;"
+            outlined
+            severity="secondary"
+            @click="isShowBodyAndFooterWanted = true"
+          />
+        </a>
       </div>
     </div>
     <div id="title-image-layout">
-      <img id="title-image" alt="صالتک" src="/site_mainviewimage.webp">
+      <img id="title-image" alt="صالتک" src="/site_mainviewimage.webp" />
     </div>
   </div>
   <div id="learnMore">
@@ -78,7 +87,7 @@ setTimeout( function () {
     <div>
       <MainViewBodyObject3 />
     </div>
-<!--    <Divider/>-->
+    <!--    <Divider/>-->
     <div>
       <MainViewFooter />
     </div>
@@ -86,7 +95,7 @@ setTimeout( function () {
 </template>
 
 <style scoped>
-@import "@/styles/responsive-main-view-object.css";
+@import '@/styles/responsive-main-view-object.css';
 
 * {
   direction: rtl;
@@ -129,29 +138,30 @@ setTimeout( function () {
 }
 
 .material-symbols-rounded {
-  font-variation-settings: 'FILL' 0,
-  'wght' 700,
-  'GRAD' 0,
-  'opsz' 24
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 0,
+    'opsz' 24;
 }
 
 /***** Texts *****/
 
 #text-title {
-  font-family: "Peyda Black", sans-serif !important;
+  font-family: 'Peyda Black', sans-serif !important;
   text-transform: uppercase;
   line-height: 0.8rem;
   padding-top: 0.5rem;
 }
 
 #text-title-subtitle {
-  font-family: "Peyda Bold", sans-serif !important;
+  font-family: 'Peyda Bold', sans-serif !important;
   color: var(--text-color-secondary);
   line-height: 0.8rem;
 }
 
 #text-subtitle {
-  font-family: "Peyda Medium", sans-serif !important;
+  font-family: 'Peyda Medium', sans-serif !important;
 }
 
 /******************/
@@ -171,5 +181,4 @@ span {
   color: var(--text-color-secondary);
   opacity: 20%;
 }
-
 </style>
