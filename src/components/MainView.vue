@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import MainViewBodyObject1 from '@/components/MainViewBodyObject1.vue'
 import MainViewBodyObject2 from '@/components/MainViewBodyObject2.vue'
 import MainViewBodyObject3 from '@/components/MainViewBodyObject3.vue'
-import MainViewFooter from '@/components/MainViewFooter.vue'
 
 const slogans = ['سازنده ایده های ناب', 'نوآور در تکنولوژی', 'در پی خلق شگفتی']
 
@@ -76,20 +75,17 @@ setTimeout(function () {
     </div>
   </div>
   <div id="learnMore">
-    <div>
+    <section>
       <MainViewBodyObject1 />
-    </div>
-    <div class="material-symbols-rounded divider w-full text-center align-center">more_horiz</div>
-    <div>
+      <div class="material-symbols-rounded divider w-full text-center align-center">more_horiz</div>
+    </section>
+    <section>
       <MainViewBodyObject2 />
-    </div>
-    <div class="material-symbols-rounded divider w-full text-center align-center">more_horiz</div>
-    <div>
+      <div class="material-symbols-rounded divider w-full text-center align-center">more_horiz</div>
+    </section>
+    <section>
       <MainViewBodyObject3 />
-    </div>
-    <div>
-      <MainViewFooter />
-    </div>
+    </section>
   </div>
 </template>
 

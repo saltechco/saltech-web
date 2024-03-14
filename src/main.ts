@@ -1,5 +1,4 @@
 import 'primeflex/primeflex.css'
-import 'primevue/resources/themes/aura-light-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 import '@/styles/main.css'
@@ -116,6 +115,7 @@ import TreeSelect from 'primevue/treeselect'
 import TreeTable from 'primevue/treetable'
 import TriStateCheckbox from 'primevue/tristatecheckbox'
 import VirtualScroller from 'primevue/virtualscroller'
+import titleMixin from './mixins/title'
 
 const app = createApp(App)
 
@@ -230,5 +230,7 @@ app.component('TreeSelect', TreeSelect)
 app.component('TreeTable', TreeTable)
 app.component('TriStateCheckbox', TriStateCheckbox)
 app.component('VirtualScroller', VirtualScroller)
+
+app.mixin(titleMixin)
 
 app.mount('#app')

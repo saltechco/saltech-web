@@ -89,7 +89,7 @@ function handleScroll() {
 </script>
 
 <template>
-  <div id="menu-bg" :class="scrolled ? 'shadow-3' : ''">
+  <header id="menu-bg" :class="scrolled ? 'shadow-3' : ''">
     <MegaMenu id="menu" :model="items" class="p-3 w-full">
       <template #start>
         <div class="clickable" onclick='window.location.href = "/"'>
@@ -153,7 +153,7 @@ function handleScroll() {
         </a>
       </template>
     </MegaMenu>
-  </div>
+  </header>
 </template>
 
 <style scoped>
