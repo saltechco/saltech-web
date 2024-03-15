@@ -2,6 +2,12 @@
 import Footer from '@/components/Footer.vue'
 </script>
 
+<script lang="ts">
+export default {
+  title: 'وبلاگ'
+}
+</script>
+
 <template>
   <div class="spacer" />
   <div class="container">

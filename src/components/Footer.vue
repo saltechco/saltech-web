@@ -97,6 +97,7 @@ function changeTheme() {
 <template>
   <footer>
     <div class="container">
+      <div id="container-margin" />
       <div id="sides">
         <div id="right-side">
           <div id="none-column" />
@@ -105,6 +106,36 @@ function changeTheme() {
               صــالــتــک&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;خــلــق&nbsp;&nbsp;آیـــنــده&nbsp;&nbsp;هــوشــمـــنــد
             </h1>
             <p id="slogan-subtitle">گروه نرم افزاری صالتک</p>
+          </div>
+          <div id="icons-mobile-layout">
+            <div id="none-column" />
+            <div id="icons-mobile">
+              <img
+                id="samandehi-logo"
+                alt="ساماندهی"
+                onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=366761&p=xlaogvkagvkajyoegvkarfth", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
+                referrerpolicy="origin"
+                src="/logo-samandehi.png"
+                style="cursor: pointer"
+                title="برای مشاهده اعتبار، کلیک کنید."
+              />
+              <div style="margin-left: 2rem" />
+              <a
+                href="https://trustseal.enamad.ir/?id=334332&Code=wXzoBfS1fzJHph130V65"
+                referrerpolicy="origin"
+                target="_blank"
+              >
+                <img
+                  id="enamad-logo"
+                  Code="wXzoBfS1fzJHph130V65"
+                  alt="نماد الکترونیک (اینماد)"
+                  referrerpolicy="origin"
+                  :src="themeText == 'حالت روز' ? '/logo-enamad-dark.png' : '/logo-enamad-light.png'"
+                  title="برای مشاهده اعتبار، روی اینماد کلیک کنید."
+                />
+              </a>
+            </div>
+            <div id="none-column" />
           </div>
           <div id="sub-d">
             <div id="none-row" />
@@ -278,32 +309,7 @@ function changeTheme() {
 </template>
 
 <style scoped>
-@media (max-width: 600px) {
-  #refers-mobile {
-    display: flex !important;
-    margin-left: 1rem !important;
-  }
-
-  #refers {
-    display: none !important;
-  }
-
-  .slogan {
-    font-size: clamp(1rem, 5vw, 9rem) !important;
-  }
-
-  #slogan-subtitle {
-    font-size: clamp(1rem, 5vw, 9rem) !important;
-  }
-
-  #samandehi-logo {
-    width: clamp(1rem, 30vw, 8rem) !important;
-  }
-
-  #enamad-logo {
-    width: clamp(1rem, 27vw, 8rem) !important;
-  }
-}
+@import "@/styles/responsive-footer.css";
 
 * {
   direction: rtl;
@@ -318,6 +324,10 @@ function changeTheme() {
   flex-wrap: nowrap;
   display: flex;
   flex-direction: column;
+}
+
+#container-margin {
+  margin: 1rem 0 0;
 }
 
 #sides {
@@ -403,7 +413,6 @@ function changeTheme() {
 }
 
 .slogan {
-  /* TODO */
   font-family: 'Peyda Black', sans-serif !important;
   margin: 0 3rem;
   font-size: clamp(1rem, 2vw, 9rem);
@@ -415,6 +424,7 @@ function changeTheme() {
   font-size: clamp(1rem, 1.2vw, 9rem);
 }
 
+#icons-mobile,
 #icons {
   width: 100%;
   flex: 1;
@@ -425,13 +435,15 @@ function changeTheme() {
   padding: 2vw;
 }
 
+#icons-mobile-layout {
+  display: none;
+}
+
 #samandehi-logo {
-  /* TODO */
   width: clamp(1rem, 50vw, 8rem);
 }
 
 #enamad-logo {
-  /* TODO */
   width: clamp(1rem, 40vw, 8rem);
 }
 

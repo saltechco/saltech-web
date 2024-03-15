@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Footer from '@/components/Footer.vue'
 </script>
+
 <script lang="ts">
 export default {
   title: 'صفحه پیدا نشد'
@@ -10,39 +11,41 @@ export default {
 <template>
   <div class="spacer" />
   <div class="container">
-    <div id="desktop" style="scale: 1.15; width: 100%; height: 100vh; padding-top: 150px">
-      <center>
-        <lottie-player
-          src="/jsons/not-found.json"
-          speed="1"
-          style="width: 200px; height: 200px; scale: 1.4; background: transparent"
-          mode="normal"
-          autoplay
-          loop
-        ></lottie-player>
-        <h4
-          style="
+    <lottie-player
+      src="/jsons/not-found.json"
+      speed="1"
+      style="width: 200px; height: 200px; scale: 1.4; background: transparent"
+      mode="normal"
+      autoplay
+      loop
+    ></lottie-player>
+    <h4
+      style="
             color: #007cff;
             margin-top: 3rem;
             font-family: 'Peyda Black', sans-serif;
             font-size: 18pt;
           "
-        >
-          گــشــتم نبود ، نـــگـــرد نیست!&nbsp;🧐
-        </h4>
-        <p style="color: slategray; font-size: 14pt">
-          ممکنه صفحه پاک شده باشه یا موقتاً در دسترس نباشه.
-        </p>
-      </center>
-    </div>
+    >
+      گــشــتم نبود ، نـــگـــرد نیست!&nbsp;🧐
+    </h4>
+    <p style="color: slategray; font-size: 14pt">
+      ممکنه صفحه پاک شده باشه یا موقتاً در دسترس نباشه.
+    </p>
   </div>
   <Footer />
 </template>
 
 <style scoped>
 .container {
-  overflow-x: hidden;
-  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  margin: 8rem 0 14rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 * {
@@ -55,7 +58,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
   overflow: hidden;
 }
 </style>

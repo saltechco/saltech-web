@@ -72,12 +72,6 @@ object {
   pointer-events: none;
 }
 
-.divider {
-  scale: 2.85;
-  color: var(--text-color-secondary);
-  opacity: 20%;
-}
-
 @media (min-width: 530px) {
   .spacer {
     margin-top: 4rem;

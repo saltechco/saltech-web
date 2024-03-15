@@ -1,6 +1,8 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+</script>
 
 <template>
+  <div id="none-column"/>
   <div id="title-layout">
     <div id="title-text-layout">
       <div id="title-text">
@@ -17,27 +19,30 @@
       <img id="title-image" alt="صالتک" src="/site_purpose.webp" />
     </div>
   </div>
+  <div id="none-column"/>
 </template>
 
 <style scoped>
-@import '@/styles/responsive-main-view-object.css';
+@import '@/styles/responsive-main-view.css';
 
 * {
   direction: rtl;
 }
 
+#none-column {
+  margin-top: 4rem;
+}
+
 #title-layout {
   background: var(--surface-0);
-  height: 100%;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 5rem 0;
   flex-wrap: wrap;
   display: flex;
 }
 
 #title-text-layout {
-  height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +51,6 @@
 }
 
 #title-image-layout {
-  height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;

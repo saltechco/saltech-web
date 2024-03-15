@@ -90,17 +90,16 @@ setTimeout(function () {
 </template>
 
 <style scoped>
-@import '@/styles/responsive-main-view-object.css';
+@import '@/styles/responsive-main-view.css';
 
 * {
   direction: rtl;
 }
 
 #header-title-layout {
-  height: 100%;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 4rem 0;
   flex-wrap: wrap;
   background: var(--surface-100);
   display: flex;
@@ -169,5 +168,11 @@ span {
   50% {
     border-color: transparent;
   }
+}
+
+.divider {
+  font-size: clamp(1rem, 4vw, 9rem);
+  color: var(--text-color-secondary);
+  opacity: 20%;
 }
 </style>
