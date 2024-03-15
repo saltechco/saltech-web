@@ -9,6 +9,11 @@ const router = createRouter({
       component: () => import('../views/Home.vue')
     },
     {
+      path: '/blog',
+      name: 'Blog',
+      component: () => import('../views/Blog.vue')
+    },
+    {
       path: '/:catchAll(.*)',
       component: () => import('../views/NotFound.vue'),
       name: 'NotFound'

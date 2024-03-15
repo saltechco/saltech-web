@@ -83,13 +83,11 @@ const themeText = ref(systemDefaultTheme ? 'حالت روز' : 'حالت شب')
 function changeTheme() {
   const darkMode = cookies.get('darkMode')
   if (darkMode == '0x23FF41') {
-    PrimeVue.changeTheme('aura-dark-blue', 'aura-light-blue', 'theme-link', () => {
-    })
+    PrimeVue.changeTheme('aura-dark-blue', 'aura-light-blue', 'theme-link', () => {})
     cookies.set('darkMode', '0x00123F')
     themeText.value = 'حالت شب'
   } else {
-    PrimeVue.changeTheme('aura-light-blue', 'aura-dark-blue', 'theme-link', () => {
-    })
+    PrimeVue.changeTheme('aura-light-blue', 'aura-dark-blue', 'theme-link', () => {})
     cookies.set('darkMode', '0x23FF41')
     themeText.value = 'حالت روز'
   }
@@ -103,7 +101,7 @@ function changeTheme() {
         <div id="right-side">
           <div id="none-column" />
           <div id="slogan-layout">
-            <h1 :class="['slogan', (themeText == 'حالت روز') ? 'slogan-dark' : 'slogan-light']">
+            <h1 :class="['slogan', themeText == 'حالت روز' ? 'slogan-dark' : 'slogan-light']">
               صــالــتــک&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;خــلــق&nbsp;&nbsp;آیـــنــده&nbsp;&nbsp;هــوشــمـــنــد
             </h1>
             <p id="slogan-subtitle">گروه نرم افزاری صالتک</p>
@@ -145,7 +143,12 @@ function changeTheme() {
                 </li>
                 <li v-for="item in refers">
                   <div class="refer-item">
-                    <router-link v-slot="{ href, navigate }" :to="item.target" custom>
+                    <router-link
+                      v-slot="{ href, navigate }"
+                      :to="item.target"
+                      custom
+                      disabled="disabled"
+                    >
                       <a :href="href" class="refer-item-text" @click="navigate">{{ item.text }}</a>
                     </router-link>
                   </div>
@@ -177,7 +180,7 @@ function changeTheme() {
                 Code="wXzoBfS1fzJHph130V65"
                 alt="نماد الکترونیک (اینماد)"
                 referrerpolicy="origin"
-                src="/logo-enamad.png"
+                :src="themeText == 'حالت روز' ? '/logo-enamad-dark.png' : '/logo-enamad-light.png'"
                 title="برای مشاهده اعتبار، روی اینماد کلیک کنید."
               />
             </a>
@@ -194,7 +197,9 @@ function changeTheme() {
                   <li v-for="item in refers">
                     <div class="refer-item">
                       <router-link v-slot="{ href, navigate }" :to="item.target" custom>
-                        <a :href="href" class="refer-item-text" @click="navigate">{{ item.text }}</a>
+                        <a :href="href" class="refer-item-text" @click="navigate">{{
+                          item.text
+                        }}</a>
                       </router-link>
                     </div>
                   </li>
@@ -205,17 +210,17 @@ function changeTheme() {
                   <span class="material-symbols-rounded contact-icon">pin_drop</span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="contact-text" href="https://maps.app.goo.gl/N8kE4AvjEThL4cr48"
-                  >یزد، امام شهر، میدان انقلاب، بلوار ولیعصر،<br />بعد از ایستگاه دوم اتوبوس</a
+                    >یزد، امام شهر، میدان انقلاب، بلوار ولیعصر،<br />بعد از ایستگاه دوم اتوبوس</a
                   >
                 </p>
                 <br />
                 <p class="contact-layout">
-              <span class="material-symbols-rounded contact-icon" style="transform: scaleX(-1)"
-              >phone</span
-              >
+                  <span class="material-symbols-rounded contact-icon" style="transform: scaleX(-1)"
+                    >phone</span
+                  >
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="contact-text" href="tel:03535247787"
-                  >7787&nbsp;&nbsp;&nbsp;&nbsp;3524&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;035</a
+                    >7787&nbsp;&nbsp;&nbsp;&nbsp;3524&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;035</a
                   >
                 </p>
                 <br />
@@ -223,7 +228,7 @@ function changeTheme() {
                   <span class="material-symbols-rounded contact-icon">mail</span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="contact-text" href="mailto:saltech.co.ir@gmail.com"
-                  >saltech.co.ir@gmail.com</a
+                    >saltech.co.ir@gmail.com</a
                   >
                 </p>
               </div>
@@ -273,7 +278,6 @@ function changeTheme() {
 </template>
 
 <style scoped>
-
 @media (max-width: 600px) {
   #refers-mobile {
     display: flex !important;
@@ -402,13 +406,13 @@ function changeTheme() {
   /* TODO */
   font-family: 'Peyda Black', sans-serif !important;
   margin: 0 3rem;
-  font-size: clamp(1rem, 2.5vw, 9rem);
+  font-size: clamp(1rem, 2vw, 9rem);
 }
 
 #slogan-subtitle {
   font-family: 'Peyda Medium', sans-serif !important;
   margin: 1rem 3rem 0;
-  font-size: clamp(1rem, 1.6vw, 9rem);
+  font-size: clamp(1rem, 1.2vw, 9rem);
 }
 
 #icons {
@@ -539,10 +543,12 @@ function changeTheme() {
   width: 2rem;
   margin: 0 1rem;
   scale: 1;
-  transition: margin 0.1s,
-  scale 0.1s;
-  -webkit-transition: margin 0.1s,
-  scale 0.1s;
+  transition:
+    margin 0.1s,
+    scale 0.1s;
+  -webkit-transition:
+    margin 0.1s,
+    scale 0.1s;
 }
 
 .refer-item-text:hover {
@@ -568,10 +574,11 @@ function changeTheme() {
 }
 
 .material-symbols-rounded {
-  font-variation-settings: 'FILL' 0,
-  'wght' 650,
-  'GRAD' 0,
-  'opsz' 100;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 650,
+    'GRAD' 0,
+    'opsz' 100;
   font-size: 1.5em;
 }
 

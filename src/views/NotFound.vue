@@ -1,7 +1,10 @@
-
-
 <script lang="ts" setup>
-import MainViewFooter from '@/components/Footer.vue'
+import Footer from '@/components/Footer.vue'
+</script>
+<script lang="ts">
+export default {
+  title: 'صفحه پیدا نشد'
+}
 </script>
 
 <template>
@@ -32,8 +35,8 @@ import MainViewFooter from '@/components/Footer.vue'
         </p>
       </center>
     </div>
-    <MainViewFooter />
   </div>
+  <Footer />
 </template>
 
 <style scoped>
