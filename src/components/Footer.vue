@@ -130,7 +130,9 @@ function changeTheme() {
                   Code="wXzoBfS1fzJHph130V65"
                   alt="نماد الکترونیک (اینماد)"
                   referrerpolicy="origin"
-                  :src="themeText == 'حالت روز' ? '/logo-enamad-dark.png' : '/logo-enamad-light.png'"
+                  :src="
+                    themeText == 'حالت روز' ? '/logo-enamad-dark.png' : '/logo-enamad-light.png'
+                  "
                   title="برای مشاهده اعتبار، روی اینماد کلیک کنید."
                 />
               </a>
@@ -309,7 +311,7 @@ function changeTheme() {
 </template>
 
 <style scoped>
-@import "@/styles/responsive-footer.css";
+@import '@/styles/responsive-footer.css';
 
 * {
   direction: rtl;

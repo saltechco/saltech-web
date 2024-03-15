@@ -1,5 +1,4 @@
 @media (min-width: 1080px) {
-
   #text-title {
     font-size: 3vw !important;
   }
@@ -22,7 +21,6 @@
 }
 
 @media (max-width: 1080px) and (min-width: 640px) {
-
   #text-title {
     font-size: 3.5vw !important;
     padding-bottom: 0.5rem !important;
@@ -46,7 +44,6 @@
 }
 
 @media (max-width: 640px) and (min-width: 480px) {
-
   #text-title {
     font-size: 4.5vw !important;
     padding-bottom: 0.5rem !important;
@@ -79,7 +76,6 @@
 }
 
 @media (max-width: 480px) {
-
   #text-title {
     font-size: 5vw !important;
     padding-bottom: 0.5rem !important;

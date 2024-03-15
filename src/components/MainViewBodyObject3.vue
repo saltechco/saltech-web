@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div id="none-column"/>
+  <div id="none-column" />
   <div id="title-layout">
     <div id="title-text-layout">
       <div id="title-text">
@@ -18,7 +18,7 @@
       <img id="title-image" alt="صالتک" src="/site_growup.webp" />
     </div>
   </div>
-  <div id="none-column"/>
+  <div id="none-column" />
 </template>
 
 <style scoped>

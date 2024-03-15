@@ -1,52 +1,52 @@
 @media screen and (max-width: 645px) {
-    #icons-mobile-layout {
-        display: block !important;
-    }
+  #icons-mobile-layout {
+    display: block !important;
+  }
 
-    #icons {
-        display: none !important;
-    }
+  #icons {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    #refers-mobile {
-        display: flex !important;
-        margin-left: 1rem !important;
-    }
+  #refers-mobile {
+    display: flex !important;
+    margin-left: 1rem !important;
+  }
 
-    #refers {
-        display: none !important;
-    }
+  #refers {
+    display: none !important;
+  }
 
-    .slogan {
-        font-size: clamp(1rem, 5vw, 9rem) !important;
-    }
+  .slogan {
+    font-size: clamp(1rem, 5vw, 9rem) !important;
+  }
 
-    #slogan-subtitle {
-        font-size: clamp(1rem, 5vw, 9rem) !important;
-    }
+  #slogan-subtitle {
+    font-size: clamp(1rem, 5vw, 9rem) !important;
+  }
 
-    #samandehi-logo {
-        width: clamp(1rem, 30vw, 8rem) !important;
-    }
+  #samandehi-logo {
+    width: clamp(1rem, 30vw, 8rem) !important;
+  }
 
-    #enamad-logo {
-        width: clamp(1rem, 27vw, 8rem) !important;
-    }
+  #enamad-logo {
+    width: clamp(1rem, 27vw, 8rem) !important;
+  }
 
-    #icons-mobile-layout {
-        display: block !important;
-    }
+  #icons-mobile-layout {
+    display: block !important;
+  }
 
-    #icons {
-        display: none !important;
-    }
+  #icons {
+    display: none !important;
+  }
 
-    #icons-mobile-layout {
-        display: block !important;
-    }
+  #icons-mobile-layout {
+    display: block !important;
+  }
 
-    #icons {
-        display: none !important;
-    }
+  #icons {
+    display: none !important;
+  }
 }

@@ -21,11 +21,11 @@ export default {
     ></lottie-player>
     <h4
       style="
-            color: #007cff;
-            margin-top: 3rem;
-            font-family: 'Peyda Black', sans-serif;
-            font-size: 18pt;
-          "
+        color: #007cff;
+        margin-top: 3rem;
+        font-family: 'Peyda Black', sans-serif;
+        font-size: 18pt;
+      "
     >
       گــشــتم نبود ، نـــگـــرد نیست!&nbsp;🧐
     </h4>
