@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import Footer from '@/components/Footer.vue'
+import Footer from '@/components/main/Footer.vue'
 </script>
 
 <script lang="ts">

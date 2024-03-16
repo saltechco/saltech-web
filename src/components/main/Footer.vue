@@ -52,17 +52,13 @@ const refers = [
     text: 'وبلاگ',
     target: '/blog'
   },
-  // {
-  //   text: 'مشتریان',
-  //   target: '/customers'
-  // },
   {
     text: 'سؤالات متداول',
     target: '/faq'
   },
   {
     text: 'تماس با ما',
-    target: '/contact'
+    target: '/contactus'
   },
   {
     text: 'درباره ما',
@@ -180,7 +176,6 @@ function changeTheme() {
                       v-slot="{ href, navigate }"
                       :to="item.target"
                       custom
-                      disabled="disabled"
                     >
                       <a :href="href" class="refer-item-text" @click="navigate">{{ item.text }}</a>
                     </router-link>
@@ -242,8 +237,7 @@ function changeTheme() {
                 <p class="contact-layout">
                   <span class="material-symbols-rounded contact-icon">pin_drop</span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a class="contact-text" href="https://maps.app.goo.gl/N8kE4AvjEThL4cr48"
-                    >یزد، امام شهر، میدان انقلاب، بلوار ولیعصر،<br />بعد از ایستگاه دوم اتوبوس</a
+                  <a class="contact-text" href="https://nshn.ir/Qb_enhVGWQuO">استان یزد، یزد، امام شهر، بلوار ولیعصر (عج)، نبش ولیعصر 49</a
                   >
                 </p>
                 <br />
@@ -311,7 +305,7 @@ function changeTheme() {
 </template>
 
 <style scoped>
-@import '@/styles/responsive-footer.css';
+@import '@/styles/responsive/footer.css';
 
 * {
   direction: rtl;

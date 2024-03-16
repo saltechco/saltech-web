@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { RouterView } from 'vue-router'
-import AppBar from '@/components/AppBar.vue'
+import AppBar from '@/components/main/AppBar.vue'
 import { usePrimeVue } from 'primevue/config'
 import { useCookies } from 'vue3-cookies'
 import { onMounted } from 'vue'

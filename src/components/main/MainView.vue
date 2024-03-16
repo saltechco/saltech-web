@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import MainViewBodyObject1 from '@/components/MainViewBodyObject1.vue'
-import MainViewBodyObject2 from '@/components/MainViewBodyObject2.vue'
-import MainViewBodyObject3 from '@/components/MainViewBodyObject3.vue'
+import MainViewBodyObject1 from '@/components/main/MainViewBodyObject1.vue'
+import MainViewBodyObject2 from '@/components/main/MainViewBodyObject2.vue'
+import MainViewBodyObject3 from '@/components/main/MainViewBodyObject3.vue'
 
 const slogans = ['سازنده ایده های ناب', 'نوآور در تکنولوژی', 'در پی خلق شگفتی']
 
@@ -90,7 +90,7 @@ setTimeout(function () {
 </template>
 
 <style scoped>
-@import '@/styles/responsive-main-view.css';
+@import '@/styles/responsive/main-view.css';
 
 * {
   direction: rtl;

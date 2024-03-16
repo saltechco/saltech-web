@@ -22,7 +22,7 @@
 </template>
 
 <style scoped>
-@import '@/styles/responsive-main-view.css';
+@import '@/styles/responsive/main-view.css';
 
 * {
   direction: rtl;

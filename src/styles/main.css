@@ -1,5 +1,6 @@
 @import 'primeicons/primeicons.css';
 @import '../assets/fonts/fonts.css';
+@import '@/styles/responsive/main.css';
 
 .material-symbols-rounded {
   font-family: 'Material Symbols Rounded', sans-serif !important;
@@ -72,14 +73,7 @@ object {
   pointer-events: none;
 }
 
-@media (min-width: 530px) {
-  .spacer {
-    margin-top: 4rem;
-  }
-}
-
-@media (max-width: 530px) {
-  .spacer {
-    margin-top: 5rem;
-  }
+.scroll-top {
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
 }
