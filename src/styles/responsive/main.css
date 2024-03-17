@@ -1,19 +1,19 @@
 @media (min-width: 530px) {
-    .spacer {
-        margin-top: 4rem;
-    }
+  .spacer {
+    margin-top: 4rem;
+  }
 
-    .scroll-top {
-        margin: 25px;
-    }
+  .scroll-top {
+    margin: 25px;
+  }
 }
 
 @media (max-width: 530px) {
-    .spacer {
-        margin-top: 5rem;
-    }
+  .spacer {
+    margin-top: 5rem;
+  }
 
-    .scroll-top {
-        margin: 10px;
-    }
+  .scroll-top {
+    margin: 10px;
+  }
 }

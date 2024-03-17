@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import ContactUs from '@/components/pages/ContactUs.vue'
 import Footer from '@/components/main/Footer.vue'
 import MainScrollTop from '@/components/main/MainScrollTop.vue'
+import Privacy from '@/components/pages/Privacy.vue'
 </script>
 
 <script lang="ts">
 export default {
-  title: 'ارتباط با ما'
+  title: 'حریم خصوصی'
 }
 </script>
 
 <template>
   <div class="spacer" />
   <div class="container">
-    <ContactUs />
+    <Privacy />
     <Footer />
     <MainScrollTop />
   </div>

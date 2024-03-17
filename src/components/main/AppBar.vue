@@ -52,7 +52,7 @@ const items = ref([
               label: 'مهد خاطره',
               subtext: 'نمونه ای از یک سایت کامل',
               route: '/websites/mahdekhatere',
-              icon: 'pi pi-file'
+              icon: 'pi pi-desktop'
             }
           ]
         },
@@ -74,7 +74,68 @@ const items = ref([
   {
     label: 'خدمات',
     root: true,
-    route: '/services'
+    items: [
+      [
+        {
+          items: [
+            {
+              label: 'طراحی اپلیکیشن',
+              subtext: 'طراحی انواع اپلیکیشن ویندوز و موبایل',
+              route: '/services/application',
+              icon: 'pi pi-th-large'
+            },
+            {
+              label: 'طراحی وبسایت',
+              subtext: 'طراحی انواع وبسایت (وردپرس ، خام و ...)',
+              route: '/services/website',
+              icon: 'pi pi-desktop'
+            },
+            {
+              label: 'طراحی گرافیک',
+              subtext: 'طراحی انواع طرح های گرافیکی (بنر ، پوستر و ...)',
+              route: '/services/graphics',
+              icon: 'pi pi-palette'
+            }
+          ]
+        }
+      ],
+      [
+        {
+          items: [
+            {
+              label: 'طراحی سخت افزار',
+              subtext: 'طراحی انواع دستگاه های الکترونیکی',
+              route: '/services/software',
+              icon: 'pi pi-box'
+            },
+            {
+              label: 'پشتیبانی سایت',
+              subtext: 'خدمات بهینه سازی SEO ، هاستینگ و ...',
+              route: '/services/cloud',
+              icon: 'pi pi-cloud'
+            },
+            {
+              label: 'خدمات اداری',
+              subtext: 'طراحی انواع پروژه های پاورپوینت، ورد و اکسل',
+              route: '/services/office',
+              icon: 'pi pi-file-edit'
+            }
+          ]
+        }
+      ],
+      [
+        {
+          items: [
+            {
+              label: 'آموزش برنامه نویسی',
+              subtext: 'آموزش برنامه نویسی و طراحی نرم افزار به شیوۀ گیرا به همه',
+              route: '/services/mentoring',
+              icon: 'pi pi-code'
+            }
+          ]
+        }
+      ]
+    ]
   },
   {
     label: 'ارتباط با ما',

@@ -58,16 +58,22 @@ employees.value = setEmployeesAvatar.value
   <div class="container">
     <h1 class="title">دربـــــاره مــــــا</h1>
     <p class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ما کنار همیم! ❤️</p>
-    <p class="description">ما در این راه پر فراز و نشیب و سخت، برای رفع نیاز های شما عزیزان، دستیابی به جدیدترین تکنولوژی های روز دنیا<br>و
-      بهره گیری از آنها در راستای بهبود خدماتمان، تمامی تلاشمان را می کنیم.<br>ما در کنار هم، پر قدرت در
-      ادامه این راه هستیم.</p>
+    <p class="description">
+      ما در این راه پر فراز و نشیب و سخت، برای رفع نیاز های شما عزیزان، دستیابی به جدیدترین تکنولوژی
+      های روز دنیا<br />و بهره گیری از آنها در راستای بهبود خدماتمان، تمامی تلاشمان را می کنیم.<br />ما
+      در کنار هم، پر قدرت در ادامه این راه هستیم.
+    </p>
     <div class="spacer" />
     <div id="employees">
       <Card v-for="employee in employees" class="employee-card">
         <template #content>
           <div class="employee-container">
-            <Avatar :image="employee.avatar" class="flex align-items-center justify-content-center mr-2 employee-avatar" shape="circle"
-                    size="xlarge" />
+            <Avatar
+              :image="employee.avatar"
+              class="flex align-items-center justify-content-center mr-2 employee-avatar"
+              shape="circle"
+              size="xlarge"
+            />
             <h4 class="employee-name">{{ employee.name }}</h4>
             <p class="employee-post">{{ employee.post }}</p>
           </div>
@@ -89,12 +95,12 @@ employees.value = setEmployeesAvatar.value
 }
 
 .title {
-  font-family: "Peyda Black", sans-serif;
+  font-family: 'Peyda Black', sans-serif;
   font-size: clamp(1rem, 3vw, 2.25rem);
 }
 
 .subtitle {
-  font-family: "Peyda Bold", sans-serif;
+  font-family: 'Peyda Bold', sans-serif;
   color: var(--text-color-secondary);
   opacity: 0.75;
   font-size: clamp(1rem, 1.7vw, 2rem);
@@ -102,7 +108,7 @@ employees.value = setEmployeesAvatar.value
 }
 
 .description {
-  font-family: "Peyda Medium", sans-serif;
+  font-family: 'Peyda Medium', sans-serif;
   font-size: clamp(1rem, 1.4vw, 2rem);
   margin: 4rem 2.5rem 0;
 }
@@ -127,7 +133,7 @@ employees.value = setEmployeesAvatar.value
 }
 
 .employee-name {
-  font-family: "Peyda Bold", sans-serif;
+  font-family: 'Peyda Bold', sans-serif;
   font-size: clamp(1rem, 1.25vw, 2rem);
 }
 </style>

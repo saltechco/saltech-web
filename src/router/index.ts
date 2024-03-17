@@ -9,11 +9,6 @@ const router = createRouter({
       component: () => import('../views/Home.vue')
     },
     {
-      path: '/blog',
-      name: 'Blog',
-      component: () => import('../views/Blog.vue')
-    },
-    {
       path: '/contactus',
       name: 'ContactUs',
       component: () => import('../views/ContactUs.vue')
@@ -22,6 +17,21 @@ const router = createRouter({
       path: '/about',
       name: 'About',
       component: () => import('../views/About.vue')
+    },
+    {
+      path: '/faq',
+      name: 'FAQ',
+      component: () => import('../views/FAQ.vue')
+    },
+    {
+      path: '/privacy',
+      name: 'PrivacyPolicy',
+      component: () => import('../views/PrivacyPolicy.vue')
+    },
+    {
+      path: '/terms',
+      name: 'TermsAndConditions',
+      component: () => import('../views/TermsConditions.vue')
     },
     {
       path: '/:catchAll(.*)',

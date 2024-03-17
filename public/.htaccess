@@ -1,0 +1,32 @@
+#Options -Indexes
+Options FollowSymLinks Includes
+
+AddType text/html .htm
+AddType text/css .css
+AddType application/x-javascript .js
+AddHandler server-parsed .htm
+AddOutputFilter INCLUDES .htm
+
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+RewriteRule ^.*\.css$ - [env=headercss:1]
+
+Header set Content-type application/javascript env=headerjs
+Header set Content-type text/css env=headercss
+
+ErrorDocument 400 /400.shtml
+ErrorDocument 401 /401.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 404 /404.shtml
+ErrorDocument 500 /500.shtml
+ErrorDocument 503 /503.shtml

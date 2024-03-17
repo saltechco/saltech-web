@@ -5,9 +5,8 @@ import { useCookies } from 'vue3-cookies'
 
 const PrimeVue = usePrimeVue()
 const { cookies } = useCookies()
-const systemSettingDark = window.matchMedia('(prefers-color-scheme: dark)')
-// const systemDefaultTheme = systemSettingDark.matches
-const systemDefaultTheme = false
+// const systemDefaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+const isCurrentThemeDark = cookies.get("darkMode")  == '0x23FF41'
 
 const bestProducts = [
   {
@@ -43,7 +42,7 @@ const services = [
   },
   {
     text: 'پشتیبانی سایت',
-    target: '/services/support'
+    target: '/services/cloud'
   }
 ]
 
@@ -51,6 +50,10 @@ const refers = [
   {
     text: 'وبلاگ',
     target: '/blog'
+  },
+  {
+    text: 'رهگیری خدمات',
+    target: '/service-tracking'
   },
   {
     text: 'سؤالات متداول',
@@ -74,7 +77,7 @@ const refers = [
   }
 ]
 
-const themeText = ref(systemDefaultTheme ? 'حالت روز' : 'حالت شب')
+const themeText = ref(isCurrentThemeDark ? 'حالت روز' : 'حالت شب')
 
 function changeTheme() {
   const darkMode = cookies.get('darkMode')
@@ -172,11 +175,7 @@ function changeTheme() {
                 </li>
                 <li v-for="item in refers">
                   <div class="refer-item">
-                    <router-link
-                      v-slot="{ href, navigate }"
-                      :to="item.target"
-                      custom
-                    >
+                    <router-link v-slot="{ href, navigate }" :to="item.target" custom>
                       <a :href="href" class="refer-item-text" @click="navigate">{{ item.text }}</a>
                     </router-link>
                   </div>
@@ -237,7 +236,8 @@ function changeTheme() {
                 <p class="contact-layout">
                   <span class="material-symbols-rounded contact-icon">pin_drop</span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a class="contact-text" href="https://nshn.ir/Qb_enhVGWQuO">استان یزد، یزد، امام شهر، بلوار ولیعصر (عج)، نبش ولیعصر 49</a
+                  <a class="contact-text" href="https://nshn.ir/Qb_enhVGWQuO"
+                    >استان یزد، یزد، امام شهر، بلوار ولیعصر (عج)، بین ولیعصر 49 و 49.5</a
                   >
                 </p>
                 <br />
@@ -518,9 +518,9 @@ function changeTheme() {
 #contact-components {
   flex: 2;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
   margin-bottom: 1.75rem;
 }
@@ -538,8 +538,7 @@ function changeTheme() {
 #contact-social {
   display: inline-flex;
   flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
+  align-items: flex-end;
   justify-content: center;
   flex-direction: row;
   flex: 1;

@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import ContactUs from '@/components/pages/ContactUs.vue'
+import FAQ from '@/components/pages/FAQ.vue'
 import Footer from '@/components/main/Footer.vue'
 import MainScrollTop from '@/components/main/MainScrollTop.vue'
 </script>
 
 <script lang="ts">
 export default {
-  title: 'ارتباط با ما'
+  title: 'سؤالات متداول'
 }
 </script>
 
 <template>
   <div class="spacer" />
   <div class="container">
-    <ContactUs />
+    <FAQ />
     <Footer />
     <MainScrollTop />
   </div>

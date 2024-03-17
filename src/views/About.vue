@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import About from '@/components/About.vue'
+import About from '@/components/pages/About.vue'
 import Footer from '@/components/main/Footer.vue'
 import MainScrollTop from '@/components/main/MainScrollTop.vue'
 </script>
