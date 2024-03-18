@@ -68,6 +68,13 @@ const router = createRouter({
       }
     },
     {
+      path: '/websites/:siteName',
+      component: () => import('../views/Websites.vue'),
+      meta: {
+        title: 'صالتک • معرفی وبسایت'
+      }
+    },
+    {
       path: '/:catchAll(.*)',
       component: () => import('../views/NotFound.vue'),
       name: 'NotFound',

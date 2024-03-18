@@ -17,6 +17,9 @@ switch (route.params.appName) {
   case 'Tasbih':
     appName.value += 'تسبیح'
     break
+  case 'WordReminder':
+    appName.value += 'مرور کلمات'
+    break
   default:
     appName.value += 'برنامه نامشخص'
     break
@@ -201,19 +204,18 @@ document.title = appName.value
   </MyApp>
   <MyApp
     v-if="$route.params.appName == 'WordReminder'"
-    :links="[
-      'https://s.saltech.ir/word-reminder'
-    ]"
-    icon="pi pi-windows"
+    :links="['https://s.saltech.ir/word-reminder']"
     :type="AppType.Windows"
     app-name="مرور کلمات"
     desc="نظم دهی و مرور لغات و معانی"
     version="1.0.0-ukn"
   >
     <template #introduction>
-      اگر به دنبال نرم افزاری می‌گردید که بتوانید با استفاده از آن لغات و معانی را به آسانی یادداشت و مرور کنید، ما این نرم افزار را به شما پیشنهاد میدهیم.<br/>
-     <br/> مرور کلمات هر وقت که بخواهید، برایتان 20 کلمه را هر روز نمایش میدهد.
-     <br/> همچنین قابلیت ذخیره سازی کلمات انگیسی، فارسی و عربی را دارد.
+      اگر به دنبال نرم افزاری می‌گردید که بتوانید با استفاده از آن لغات و معانی را به آسانی یادداشت
+      و مرور کنید، ما این نرم افزار را به شما پیشنهاد میدهیم.<br />
+      <br />
+      مرور کلمات هر وقت که بخواهید، برایتان 20 کلمه را هر روز نمایش میدهد. <br />
+      همچنین قابلیت ذخیره سازی کلمات انگیسی، فارسی و عربی را دارد.
     </template>
     <template #specification>
       <h4>مشخصات اصلی:</h4>

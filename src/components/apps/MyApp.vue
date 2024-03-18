@@ -42,8 +42,13 @@ async function getReviews() {
     <div class="app-infobar">
       <div class="app-info">
         <img v-if="props.image" :alt="props.appName" :src="props.image" class="app-img" />
-        <Avatar v-else class="mr-2 app-img" size="xlarge" style="background-color: #dee9fc; color: #1a2551">
-          <span class="material-symbols-rounded">deployed_code</span>
+        <Avatar
+          v-else
+          class="mr-2 app-img"
+          size="xlarge"
+          style="background-color: #dee9fc; color: #1a2551"
+        >
+          <span class="material-symbols-rounded">{{ props.icon ?? 'deployed_code' }}</span>
         </Avatar>
         <div class="none-row" />
         <div class="app-info-attr">
@@ -64,9 +69,14 @@ async function getReviews() {
           <img id="download-myket" alt="دانلود از مایکت" src="/download-from-myket.svg" />
         </a>
       </div>
-      <div v-if="props.type == AppType.Windows && props.links" class="app-download">
+      <div v-else-if="props.type == AppType.Windows && props.links" class="app-download">
         <a :href="props.links[0]" target="_blank">
           <img id="download-direct" alt="دانلود مستقیم" src="/download-direct-windows.svg" />
+        </a>
+      </div>
+      <div v-else-if="props.type == AppType.Website && props.links" class="app-download">
+        <a :href="props.links[0]" target="_blank">
+          <img id="download-direct" alt="مشاهده وبسایت" src="/download-direct-website.svg" />
         </a>
       </div>
     </div>
@@ -98,9 +108,14 @@ async function getReviews() {
           />
         </a>
       </div>
-      <div v-if="props.type == AppType.Windows && props.links" class="app-download">
+      <div v-else-if="props.type == AppType.Windows && props.links" class="app-download-row">
         <a :href="props.links[0]" target="_blank">
-          <img id="download-direct" alt="دانلود مستقیم" src="/download-direct-windows.svg" />
+          <img id="download-direct-row" alt="دانلود مستقیم" src="/download-direct-windows.svg" />
+        </a>
+      </div>
+      <div v-else-if="props.type == AppType.Website && props.links" class="app-download-row">
+        <a :href="props.links[0]" target="_blank">
+          <img id="download-direct-row" alt="مشاهده وبسایت" src="/download-direct-website.svg" />
         </a>
       </div>
     </div>
@@ -189,13 +204,23 @@ async function getReviews() {
     display: block !important;
   }
 
+  .app-infobar {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
   .app-info {
     align-items: center;
     justify-content: center;
   }
+
+  .app-info-attr {
+    text-align: center;
+  }
 }
 
-@media screen and (max-width: 290px) {
+@media screen and (max-width: 300px) {
   .app-download {
     display: none !important;
   }
@@ -385,10 +410,9 @@ async function getReviews() {
 .material-symbols-rounded {
   font-variation-settings:
     'FILL' 0,
-    'wght' 600,
+    'wght' 500,
     'GRAD' 0,
     'opsz' 100;
   font-size: 5rem;
 }
-
 </style>

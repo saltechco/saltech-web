@@ -1,4 +1,5 @@
 export enum AppType {
   Android = 'android',
-  Windows = 'windows'
+  Windows = 'windows',
+  Website = 'website'
 }
