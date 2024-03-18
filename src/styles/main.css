@@ -77,3 +77,8 @@ object {
   transition: all 0.1s;
   -webkit-transition: all 0.1s;
 }
+
+#nprogress .bar {
+  background: var(--primary-700) !important;
+  height: 0.25rem !important;
+}

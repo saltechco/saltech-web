@@ -4,12 +4,6 @@ import MainScrollTop from '@/components/main/MainScrollTop.vue'
 import Terms from '@/components/pages/Terms.vue'
 </script>
 
-<script lang="ts">
-export default {
-  title: 'قوانین و مقررات'
-}
-</script>
-
 <template>
   <div class="spacer" />
   <div class="container">

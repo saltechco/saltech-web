@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 import md5 from 'md5'
 import { computed, ref } from 'vue'
+import { useCookies } from 'vue3-cookies'
+
+const { cookies } = useCookies()
+// const systemDefaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+const isCurrentThemeDark = cookies.get('darkMode') == '0x23FF41'
 
 const employees = ref([
   {
@@ -65,7 +70,13 @@ employees.value = setEmployeesAvatar.value
     </p>
     <div class="spacer" />
     <div id="employees">
-      <Card v-for="employee in employees" class="employee-card">
+      <Card
+        v-for="employee in employees"
+        :class="[
+          'employee-card',
+          isCurrentThemeDark ? 'employee-card-dark' : 'employee-card-light'
+        ]"
+      >
         <template #content>
           <div class="employee-container">
             <Avatar
@@ -121,9 +132,16 @@ employees.value = setEmployeesAvatar.value
 .employee-card {
   overflow: hidden;
   margin: 2rem;
-  background: var(--primary-50);
   border-radius: 25px;
   text-align: center;
+}
+
+.employee-card-light {
+  background: var(--primary-50);
+}
+
+.employee-card-dark {
+  background: var(--primary-800);
 }
 
 .employee-container {

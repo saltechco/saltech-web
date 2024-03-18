@@ -2,12 +2,6 @@
 import Footer from '@/components/main/Footer.vue'
 </script>
 
-<script lang="ts">
-export default {
-  title: 'صفحه پیدا نشد'
-}
-</script>
-
 <template>
   <div class="spacer" />
   <div class="container">

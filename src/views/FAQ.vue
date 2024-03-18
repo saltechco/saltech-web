@@ -4,12 +4,6 @@ import Footer from '@/components/main/Footer.vue'
 import MainScrollTop from '@/components/main/MainScrollTop.vue'
 </script>
 
-<script lang="ts">
-export default {
-  title: 'سؤالات متداول'
-}
-</script>
-
 <template>
   <div class="spacer" />
   <div class="container">

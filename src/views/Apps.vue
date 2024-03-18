@@ -1,13 +1,13 @@
-<script setup lang="ts">
-import ContactUs from '@/components/pages/ContactUs.vue'
+<script lang="ts" setup>
 import Footer from '@/components/main/Footer.vue'
 import MainScrollTop from '@/components/main/MainScrollTop.vue'
+import MyApps from '@/components/apps/MyApps.vue'
 </script>
 
 <template>
   <div class="spacer" />
   <div class="container">
-    <ContactUs />
+    <MyApps />
     <Footer />
     <MainScrollTop />
   </div>

@@ -6,7 +6,7 @@ import { useCookies } from 'vue3-cookies'
 const PrimeVue = usePrimeVue()
 const { cookies } = useCookies()
 // const systemDefaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-const isCurrentThemeDark = cookies.get("darkMode")  == '0x23FF41'
+const isCurrentThemeDark = cookies.get('darkMode') == '0x23FF41'
 
 const bestProducts = [
   {

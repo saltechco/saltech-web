@@ -115,7 +115,9 @@ import TreeSelect from 'primevue/treeselect'
 import TreeTable from 'primevue/treetable'
 import TriStateCheckbox from 'primevue/tristatecheckbox'
 import VirtualScroller from 'primevue/virtualscroller'
-import titleMixin from './mixins/title'
+import NProgress from 'nprogress'
+
+NProgress.configure({ showSpinner: false, easing: 'ease' })
 
 const app = createApp(App)
 
@@ -230,7 +232,5 @@ app.component('TreeSelect', TreeSelect)
 app.component('TreeTable', TreeTable)
 app.component('TriStateCheckbox', TriStateCheckbox)
 app.component('VirtualScroller', VirtualScroller)
-
-app.mixin(titleMixin)
 
 app.mount('#app')
