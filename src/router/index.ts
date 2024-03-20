@@ -75,6 +75,13 @@ const router = createRouter({
       }
     },
     {
+      path: '/services/:serviceName',
+      component: () => import('../views/Services.vue'),
+      meta: {
+        title: 'صالتک • معرفی خدمت'
+      }
+    },
+    {
       path: '/:catchAll(.*)',
       component: () => import('../views/NotFound.vue'),
       name: 'NotFound',

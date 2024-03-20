@@ -119,6 +119,7 @@ import NProgress from 'nprogress'
 
 NProgress.configure({ showSpinner: false, easing: 'ease' })
 
+
 const app = createApp(App)
 
 app.use(PrimeVue, { ripple: true })

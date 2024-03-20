@@ -27,6 +27,7 @@ async function getReviews() {
   try {
     const resp = await axios.get('https://sandoghche.cafebazaar.ir/api/v0/reviews', {
       headers: {
+        'Access-Control-Allow-Origin': '*',
         'CAFEBAZAAR-PISHKHAN-API-SECRET': props.appApiKey
       }
     })
@@ -196,6 +197,10 @@ async function getReviews() {
 }
 
 @media screen and (max-width: 530px) {
+  .container {
+    padding: 1rem !important;
+  }
+
   .app-download {
     display: none !important;
   }
@@ -218,9 +223,17 @@ async function getReviews() {
   .app-info-attr {
     text-align: center;
   }
+
+  .app-image {
+    margin: 10rem !important;
+  }
 }
 
 @media screen and (max-width: 300px) {
+  .container {
+    margin: 1rem !important;
+  }
+
   .app-download {
     display: none !important;
   }

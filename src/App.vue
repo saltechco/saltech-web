@@ -10,6 +10,8 @@ const systemSettingDark = window.matchMedia('(prefers-color-scheme: dark)')
 const { cookies } = useCookies()
 
 onMounted(() => {
+  window.scrollTo(0, 0)
+
   const darkMode = cookies.get('darkMode')
   // const systemDefaultTheme = systemSettingDark.matches
   const systemDefaultTheme = false
