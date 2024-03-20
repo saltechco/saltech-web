@@ -105,7 +105,7 @@ const items = ref([
             {
               label: 'طراحی سخت افزار',
               subtext: 'طراحی انواع دستگاه های الکترونیکی',
-              route: '/services/software',
+              route: '/services/hardware',
               icon: 'pi pi-box'
             },
             {
@@ -114,18 +114,6 @@ const items = ref([
               route: '/services/cloud',
               icon: 'pi pi-cloud'
             },
-            {
-              label: 'خدمات اداری',
-              subtext: 'طراحی انواع پروژه های پاورپوینت، ورد و اکسل',
-              route: '/services/office',
-              icon: 'pi pi-file-edit'
-            }
-          ]
-        }
-      ],
-      [
-        {
-          items: [
             {
               label: 'آموزش برنامه نویسی',
               subtext: 'آموزش برنامه نویسی و طراحی نرم افزار به شیوۀ گیرا به همه',

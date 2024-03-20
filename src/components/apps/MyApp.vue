@@ -21,6 +21,7 @@ const reviewResponse = ref(null)
 
 onMounted(() => {
   getReviews()
+  window.scrollTo(0, 0)
 })
 
 async function getReviews() {

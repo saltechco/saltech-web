@@ -1,11 +1,23 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { usePrimeVue } from 'primevue/config'
 import { useToast } from 'primevue/usetoast'
+
+const props = defineProps({
+  serviceName: String,
+  serviceTitle: String
+})
+
+const requestServiceName = props.serviceName
 
 const toast = useToast()
 const termsAndConditionsRead = ref(false)
 const startRequestRegistration = ref(false)
+
+const requestUserFullName = ref(null)
+const requestUserEmail = ref(null)
+const requestUserPhone = ref(null)
+const requestProjectDescription = ref(null)
 
 const active = ref(0)
 
@@ -102,21 +114,34 @@ function start() {
     })
   }
 }
+
+function downloadForm() {
+  window.open("/ServiceRegistrationForm.pdf", "_blank")
+}
+
+function onNextRequested(callback) {
+  callback()
+  window.scrollTo(0, 30)
+}
+
+function onPreviousRequested(callback) {
+  callback()
+  window.scrollTo(0, 30)
+}
+
+onMounted(() => {
+  window.scrollTo(0, 0)
+})
 </script>
 
 <template>
   <Toast />
   <div class="container">
     <div v-if="!startRequestRegistration" class="request-container">
-      <h1 class="title">طراحی اپلیکیشن</h1>
-      <p class="description">
-        طراحی اپلیکیشن، شامل طراحی نرم افزار های دسکتاپ (ویندوز، لینوکس و مک) و نرم افزار های موبایلی (اندروید، آی او
-        اس)
-        می باشد.<br>
-        این اپلیکیشن ها می توانند به صورت آنلاین یا آفلاین باشند و کار های خاصی مختص یک کاربر خاص یا همه اقشار جامعه
-        باشند.<br>
-        درخواست خود را در اینجا ثبت و منتظر دریافت سفارش خود با بهترین کیفیت باشید.
-      </p>
+      <h1 class="title">{{ props.serviceTitle }}</h1>
+      <div class="description">
+        <slot name="default"></slot>
+      </div>
       <div class="spacer" />
       <Fieldset class="order-request" legend="نحوه درخواست و انجام سفارش">
         <p class="m-0 order-request-text">
@@ -147,7 +172,7 @@ function start() {
             را مطالعه کرده و آنها را به صورت کامل می پذیرم.</label>
         </div>
         <div class="spacer" />
-        <Button id="order-request-button" label="شروع ثبت سفارش" type="button" @click="start" />
+        <Button id="order-request-button" label="شروع ثبت درخواست" type="button" @click="start" />
       </div>
     </div>
     <div v-else class="registration-container">
@@ -162,10 +187,10 @@ function start() {
                   class="bg-transparent border-none inline-flex flex-column gap-2 align-items-center justify-content-center">
                         <span
                           :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
-                            <i class="pi pi-file-edit" />
+                            <i class="pi pi-user-edit" />
                         </span>
                   <span
-                    :class="[{ 'text-primary tab-header-title-unselected': index < active, 'text-primary tab-header-title-selected': index == active, 'surface-border tab-header-title-unselected': index > active }]">تکمیل فرم</span>
+                    :class="[{ 'text-primary tab-header-title-selected': index <= active, 'surface-border': index > active }]">تکمیل فرم</span>
                 </p>
               </template>
               <template #content="{ nextCallback }">
@@ -174,9 +199,7 @@ function start() {
                     مرحله بعد بروید.
                   </div>
                   <div class="field p-fluid">
-                    <a href="/ServiceRegistrationForm.pdf" target="_blank">
-                      <Button icon="pi pi-download" label="دانلود فرم درخواست" />
-                    </a>
+                    <Button icon="pi pi-download" label="دانلود فرم درخواست" @click="downloadForm" />
                   </div>
                   <div class="field p-fluid">
                     <FileUpload :max-file-size="5242880" accept="application/pdf"
@@ -263,59 +286,76 @@ function start() {
                   </div>
                 </div>
                 <div class="flex pt-4 justify-content-end">
-                  <Button icon="pi pi-arrow-left" label="بعدی" style="direction: ltr" @click="nextCallback" />
+                  <Button icon="pi pi-arrow-left" label="بعدی" :disabled="!fileUploaded" style="direction: ltr" @click="onNextRequested(nextCallback)" />
                 </div>
               </template>
             </StepperPanel>
             <StepperPanel>
-              <template #header="{ index, clickCallback }">
-                <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+              <template #header="{ index }">
+                <p
+                  class="step-item bg-transparent border-none inline-flex flex-column gap-2 align-items-center justify-content-center">
                         <span
                           :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
-                            <i class="pi pi-star" />
+                            <i class="pi pi-file-edit" />
                         </span>
-                </button>
+                  <span
+                    :class="[{ 'text-primary tab-header-title-selected': index <= active, 'surface-border': index > active }]">تکمیل اطلاعات</span>
+                </p>
               </template>
               <template #content="{ prevCallback, nextCallback }">
-                <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
-                  <div class="text-center mt-3 mb-3 text-xl font-semibold">Choose your interests</div>
+                <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 50rem">
+                  <div class="text-center mt-3 mb-3 text-xl font-semibold">اطلاعات تکمیلی پروژه</div>
                   <div class="flex flex-wrap justify-content-center gap-3">
-                    <ToggleButton v-model="option1" offLabel="Nature" onLabel="Nature" />
-                    <ToggleButton v-model="option2" offLabel="Art" onLabel="Art" />
-                    <ToggleButton v-model="option3" offLabel="Music" onLabel="Music" />
-                    <ToggleButton v-model="option4" offLabel="Design" onLabel="Design" />
-                    <ToggleButton v-model="option5" offLabel="Photography" onLabel="Photography" />
-                    <ToggleButton v-model="option6" offLabel="Movies" onLabel="Movies" />
-                    <ToggleButton v-model="option7" offLabel="Sports" onLabel="Sports" />
-                    <ToggleButton v-model="option8" offLabel="Gaming" onLabel="Gaming" />
-                    <ToggleButton v-model="option9" offLabel="Traveling" onLabel="Traveling" />
-                    <ToggleButton v-model="option10" offLabel="Dancing" onLabel="Dancing" />
+                    <div class="field p-fluid">
+                      <FloatLabel id="user-full-name-layout">
+                        <InputText id="user-full-name" v-model="requestUserFullName" required />
+                        <label for="user-full-name">نام و نام خانوادگی</label>
+                      </FloatLabel>
+                      <div class="flex flex-row justify-content-center align-items-center mt-5" id="user-email-phone-number-layout">
+                        <FloatLabel id="user-email-layout">
+                          <InputText id="user-email" v-model="requestUserEmail" type="email" required />
+                          <label for="user-email">ایمیل</label>
+                        </FloatLabel>
+                        <div class="mx-2"/>
+                        <FloatLabel id="user-phone-number-layout">
+                          <InputText id="user-phone-number" v-model="requestUserPhone" type="tel" required />
+                          <label for="user-phone-number">شماره موبایل</label>
+                        </FloatLabel>
+                      </div>
+                      <FloatLabel class="mt-5" id="project-description-layout">
+                        <Textarea id="project-description" v-model="requestProjectDescription" rows="5" cols="45" required />
+                        <label for="project-description">شرح پروژه</label>
+                      </FloatLabel>
+                    </div>
                   </div>
                 </div>
                 <div class="flex pt-4 justify-content-between">
-                  <Button icon="pi pi-arrow-left" label="Back" severity="secondary" @click="prevCallback" />
-                  <Button icon="pi pi-arrow-right" iconPos="right" label="Next" @click="nextCallback" />
+                  <Button icon="pi pi-arrow-right" label="قبلی" icon-pos="right" severity="secondary" style="direction: ltr" @click="onPreviousRequested(prevCallback)" />
+                  <Button icon="pi pi-arrow-left" label="بعدی" :disabled="!(requestProjectDescription && requestUserEmail && requestUserPhone && requestUserFullName)" style="direction: ltr" @click="onNextRequested(nextCallback)" />
                 </div>
               </template>
             </StepperPanel>
             <StepperPanel>
               <template #header="{ index, clickCallback }">
-                <button class="bg-transparent border-none inline-flex flex-column gap-2" @click="clickCallback">
+                <p
+                  class="step-item bg-transparent border-none inline-flex flex-column gap-2 align-items-center justify-content-center">
                         <span
                           :class="['border-round border-2 w-3rem h-3rem inline-flex align-items-center justify-content-center', { 'bg-primary border-primary': index <= active, 'surface-border': index > active }]">
-                            <i class="pi pi-id-card" />
+                            <i class="pi pi-check" />
                         </span>
-                </button>
+                  <span
+                    :class="[{ 'text-primary tab-header-title-selected': index <= active, 'surface-border': index > active }]">صدور کد رهگیری</span>
+                </p>
               </template>
               <template #content="{ prevCallback }">
+                <!-- TODO: Tracking Code generation must be completed! -->
                 <div class="flex flex-column gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
-                  <div class="text-center mt-3 mb-3 text-xl font-semibold">Account created successfully</div>
-                  <div class="text-center">
-                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
-                  </div>
+                  <ProgressSpinner class="w-3 mt-6 mb-2" strokeWidth="4"
+                                   animationDuration=".5s" aria-label="Generating Tracking Code" />
+                  <div class="text-center mt-3 mb-3 text-xl font-semibold tracking-code-gen-text">در حال صدور کد رهگیری ...</div>
                 </div>
-                <div class="flex pt-4 justify-content-start">
-                  <Button icon="pi pi-arrow-left" label="Back" severity="secondary" @click="prevCallback" />
+                <div class="flex pt-4 justify-content-between">
+                  <Button icon="pi pi-arrow-right" label="قبلی" icon-pos="right" severity="secondary" style="direction: ltr" @click="onPreviousRequested(prevCallback)" />
                 </div>
               </template>
             </StepperPanel>
@@ -350,6 +390,7 @@ function start() {
   font-family: 'Peyda Medium', sans-serif;
   font-size: clamp(1rem, 1.4vw, 2rem);
   margin: 3rem 2.5rem 0;
+  line-height: 3rem;
 }
 
 .order-request {
@@ -403,11 +444,6 @@ function start() {
 
 .tab-header-title-selected {
   font-family: "Peyda Bold", sans-serif;
-  display: block;
-}
-
-.tab-header-title-unselected {
-  display: none;
 }
 
 .upload-text {
@@ -423,5 +459,39 @@ function start() {
 .upload-file-name {
   max-width: 100%;
   text-align: center;
+}
+
+.step-item {
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+#user-full-name-layout {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#user-phone-number {
+  width: 100%;
+  direction: ltr;
+}
+
+#user-email {
+  width: 100%;
+  direction: ltr;
+}
+
+#user-email-phone-number-layout {
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+.tracking-code-gen-text {
+  color: var(--primary-600);
+  font-family: "Peyda Medium", sans-serif;
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 </style>
