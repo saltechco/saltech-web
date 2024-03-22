@@ -72,6 +72,7 @@ const onSelectedFiles = (event) => {
       life: 3000
     })
   } else {
+    requestFormName.value = files.value[0].name
     fileSelected.value = true
   }
 }
@@ -140,11 +141,11 @@ function generateTrackingCode() {
 async function sendGenerateTrackingRequest() {
   try {
     const resp = await axios.post('/api/work/genTrackingCode', {
-      formName: requestFormName,
-      fullName: requestUserFullName,
-      phoneNumber: requestUserPhone,
-      email: requestUserEmail,
-      projectDescription: requestProjectDescription,
+      formName: requestFormName.value,
+      fullName: requestUserFullName.value,
+      phoneNumber: requestUserPhone.value,
+      email: requestUserEmail.value,
+      projectDescription: requestProjectDescription.value,
       serviceName: requestServiceName
     })
     requestTrackingCode.value = resp.data.trackingCode
@@ -178,12 +179,8 @@ function onPreviousRequested(callback) {
   window.scrollTo(0, 30)
 }
 
-function validateEmail() {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
-    this.msg['email'] = 'Please enter a valid email address'
-  } else {
-    this.msg['email'] = ''
-  }
+function checkEmailValidation() {
+  return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(requestUserEmail.value)
 }
 
 onMounted(() => {
@@ -293,9 +290,8 @@ onMounted(() => {
                           <InputText
                             id="user-email"
                             v-model="requestUserEmail"
-                            required
                             type="email"
-                            @blur="validateEmail"
+                            required
                           />
                           <label for="user-email">ایمیل</label>
                         </FloatLabel>
@@ -333,6 +329,7 @@ onMounted(() => {
                         requestUserFullName &&
                         requestUserPhone &&
                         requestUserEmail &&
+                        checkEmailValidation() &&
                         requestProjectDescription
                       )
                     "
@@ -451,14 +448,6 @@ onMounted(() => {
                           removeFileCallback
                         }"
                       >
-                        <input
-                          v-for="(file, _) of uploadedFiles"
-                          ref="requestFormName"
-                          :value="file.name"
-                          aria-hidden="true"
-                          hidden
-                        />
-
                         <div v-if="files.length == 0 && fileUploaded && !fileCouldntUpload">
                           <Badge
                             class="upload-file-status"
@@ -651,6 +640,10 @@ onMounted(() => {
                 </div>
                 <div class="flex pt-4 justify-content-between">
                   <Button
+                    v-if="
+                      !(isTrackingCodeGenerated && generateTrackingCodeResult) &&
+                      !isGeneratingTrackingCode
+                    "
                     icon="pi pi-arrow-right"
                     icon-pos="right"
                     label="قبلی"
