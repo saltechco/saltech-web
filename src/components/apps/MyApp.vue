@@ -26,11 +26,8 @@ onMounted(() => {
 
 async function getReviews() {
   try {
-    const resp = await axios.get('https://sandoghche.cafebazaar.ir/api/v0/reviews', {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'CAFEBAZAAR-PISHKHAN-API-SECRET': props.appApiKey
-      }
+    const resp = await axios.post('/api/product/cafebazaar/comments/query', {
+      token: props.appApiKey
     })
     reviewResponse.value = resp.data
   } catch (error) {
@@ -157,7 +154,9 @@ async function getReviews() {
       </TabPanel>
       <TabPanel v-if="props.appApiKey" header="نظرات">
         <div class="m-0">
-          <p v-if="!reviewResponse" id="reviews-empty">هیچ نظری وجود ندارد!</p>
+          <p v-if="!reviewResponse || reviewResponse.results.length == 0" id="reviews-empty">
+            هیچ نظری وجود ندارد!
+          </p>
           <ul v-else class="list-none">
             <li v-for="review in reviewResponse.results">
               <div class="review-header">
@@ -270,6 +269,7 @@ async function getReviews() {
   width: 100%;
   margin: 0;
   padding: 6rem;
+  background: var(--surface-0);
 }
 
 .app-infobar {

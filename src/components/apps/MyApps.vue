@@ -48,7 +48,7 @@ document.title = appName.value
       'https://s.cafebazaar.ir/images/upload/screenshot/ir.saltech.answersheet-913864573250.jpg?x-img=v1/format,type_webp,lossless_false/resize,h_600,lossless_false/optimize'
     ]"
     :type="AppType.Android"
-    app-api-key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJuYXNoZXItcGlzaGtoYW4tYXBpIiwiaWF0IjoxNjQ0MzA5NTUyLCJleHAiOjQ3OTc5MDk1NTIsImFwaV9hZ2VudF9pZCI6ODA5fQ.yJ-LeBydLiUz4PMIUK0NIc8nZoLxlIyYNdgF8ZWnFkM"
+    app-api-key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJuYXNoZXItcGlzaGtoYW4tYXBpIiwiaWF0IjoxNjQ0MzA3NTA0LCJleHAiOjQ3OTc5MDc1MDQsImFwaV9hZ2VudF9pZCI6ODA4fQ.RnOALtZfF8r36whegzHZ9MCoqiTsDdKxQDnUKFz064E"
     app-name="پاسخنامه"
     desc="شبیه ساز آزمون واقعی"
     image="https://s.cafebazaar.ir/images/icons/ir.saltech.answersheet-2267dd10-4129-4532-83c5-3742cddc000c_512x512.png?x-img=v1/format,type_webp,lossless_false/resize,h_256,w_256,lossless_false/optimize"
