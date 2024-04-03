@@ -2,11 +2,19 @@
 import { ref } from 'vue'
 import { usePrimeVue } from 'primevue/config'
 import { useCookies } from 'vue3-cookies'
+import { gregorianToJalali } from '@/scripts/jdf-converter'
 
+const nowGregorianDate = new Date()
 const PrimeVue = usePrimeVue()
 const { cookies } = useCookies()
 // const systemDefaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 const isCurrentThemeDark = cookies.get('darkMode') == '0x23FF41'
+
+const jalaliCalendar = gregorianToJalali(
+  nowGregorianDate.getFullYear(),
+  nowGregorianDate.getMonth() + 1,
+  nowGregorianDate.getDate()
+)
 
 const bestProducts = [
   {
@@ -126,12 +134,12 @@ function changeTheme() {
               >
                 <img
                   id="enamad-logo"
-                  Code="wXzoBfS1fzJHph130V65"
-                  alt="نماد الکترونیک (اینماد)"
-                  referrerpolicy="origin"
                   :src="
                     themeText == 'حالت روز' ? '/logo-enamad-dark.png' : '/logo-enamad-light.png'
                   "
+                  Code="wXzoBfS1fzJHph130V65"
+                  alt="نماد الکترونیک (اینماد)"
+                  referrerpolicy="origin"
                   title="برای مشاهده اعتبار، روی اینماد کلیک کنید."
                 />
               </a>
@@ -204,10 +212,10 @@ function changeTheme() {
             >
               <img
                 id="enamad-logo"
+                :src="themeText == 'حالت روز' ? '/logo-enamad-dark.png' : '/logo-enamad-light.png'"
                 Code="wXzoBfS1fzJHph130V65"
                 alt="نماد الکترونیک (اینماد)"
                 referrerpolicy="origin"
-                :src="themeText == 'حالت روز' ? '/logo-enamad-dark.png' : '/logo-enamad-light.png'"
                 title="برای مشاهده اعتبار، روی اینماد کلیک کنید."
               />
             </a>
@@ -298,7 +306,7 @@ function changeTheme() {
     </div>
     <div id="copyright">
       <p id="copyright-text">
-        تمامی حقوق این سایت برای صالتک محفوظ است.&nbsp;&nbsp;©️&nbsp;&nbsp;1402
+        تمامی حقوق این سایت برای صالتک محفوظ است.&nbsp;&nbsp;©️&nbsp;&nbsp;{{ jalaliCalendar[0] }}
       </p>
     </div>
   </footer>

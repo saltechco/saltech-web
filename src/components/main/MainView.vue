@@ -39,7 +39,7 @@ function StartTextAnimation(i: number) {
 
 setTimeout(function () {
   StartTextAnimation(0)
-}, 5000)
+}, 3250)
 </script>
 
 <template>
